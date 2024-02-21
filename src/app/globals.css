@@ -2,10 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./fonts/fonts.css";
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+@keyframes menuOpenBtn1 {
+  0% {
+    transform: translateY(25%) rotate(12deg);
+  }
+  50% {
+    transform: translateY(25%) rotate(45deg);
+  }
+  100% {
+    transform: translateY(50%) rotate(45deg);
+  }
+}
+
+.menuBtn1-animate {
+  animation: menuOpenBtn1 450ms steps(1, jump-end);
+  transform: translateY(50%) rotate(45deg);
+}
+
+@keyframes menuCloseBtn1 {
+  0% {
+    transform: translateY(25%) rotate(45deg);
+  }
+  50% {
+    transform: translateY(25%) rotate(12deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg);
+  }
+}
+
+.menuBtn1-reverse {
+  animation: menuCloseBtn1 450ms steps(1, jump-end);
+  transform: translateY(0%) rotate(0deg);
+}
+
+@keyframes menuOpenBtn2 {
+  0% {
+    transform: translateY(-25%) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-25%) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+.menuBtn2-animate {
+  animation: menuOpenBtn2 450ms steps(1, jump-end);
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+@keyframes menuCloseBtn2 {
+  0% {
+    transform: translateY(-25%) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-25%) rotate(-12deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg);
+  }
+}
+
+.menuBtn2-reverse {
+  animation: menuCloseBtn2 450ms steps(1, jump-end);
+  transform: translateY(0%) rotate(0deg);
 }
 
 @layer utilities {

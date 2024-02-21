@@ -7,6 +7,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      'pally-bold': 'pally-boldterrible',
+      'pally-medium' : 'pally-mediumterrible',
+      'pally-regular' : 'pally-regularterrible'
+    },
     extend: {
       screens: {
         sm: '640px',
