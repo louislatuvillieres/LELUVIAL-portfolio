@@ -8,9 +8,8 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      'pally-bold': 'pally-boldterrible',
-      'pally-medium' : 'pally-mediumterrible',
-      'pally-regular' : 'pally-regularterrible'
+      'vt323': ['var(--font-vt323)'],
+      'grandstander': ['var(--font-grandstander)']
     },
     extend: {
       screens: {

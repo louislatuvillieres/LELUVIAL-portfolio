@@ -9,10 +9,15 @@ interface MenuBtnProps {
 
 const MenuBtn: React.FC<MenuBtnProps> = ({setMenuOpen, isMenuOpen}) => {
   const [animate, setAnimate] = useState(false);
+  const [canAnimate, setCanAnimate] = useState(true);
 
   const handleClick = () => {
-    setAnimate((prev) => !prev);
-    setMenuOpen(!isMenuOpen);
+    if(canAnimate) {
+      setCanAnimate(false);
+      setAnimate((prev) => !prev);
+      setMenuOpen(!isMenuOpen);
+      setTimeout(() => {setCanAnimate(true)}, 900)
+    }
   };
 
   const [mounted, setMounted] = useState(false);
@@ -43,6 +48,7 @@ const MenuBtn: React.FC<MenuBtnProps> = ({setMenuOpen, isMenuOpen}) => {
 
   return (
     <div
+      className='cursor-pointer'
       onClick={() => {handleClick();}}>
       <div
         className={classes1}

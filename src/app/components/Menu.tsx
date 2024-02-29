@@ -6,8 +6,32 @@ interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = ({ isOpen }) => {
-  const [menuClasses, setMenuClasses] = useState("absolute z-0 top-0 pt-28 left-0 w-full h-full flex items-center justify-center");
-  const [textureClasses, setTextureClasses] = useState('absolute w-full h-full overflow-hidden top-0 textures');
+  const [isWideScreen, setIsWideScreen] = useState(false);
+
+  // Effect to update the state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      setIsWideScreen(screenWidth > screenHeight);
+    };
+
+    // Attach event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Initial check on component mount
+    handleResize();
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Determine the appropriate classes based on screen size
+  const paperClasses = isWideScreen
+    ? 'h-[100vw] w-[100vw] overflow-hidden'
+    : 'h-[100vh] w-[100vh] overflow-hidden';
+
+  const [menuClasses, setMenuClasses] = useState("absolute z-0 top-0 pt-28 left-0 w-full h-full flex items-center justify-center hidden");
 
   const [mounted, setMounted] = useState(false);
 
@@ -33,9 +57,13 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
   useEffect(() => {
     if(mounted) {
       if (isOpen) {
+        setMenuClasses("absolute z-0 top-0 pt-28 left-0 w-full h-full flex items-center justify-center");
         startAnimation();
       } else {
         reverseAnimation();
+        setTimeout(() => {
+          setMenuClasses("absolute z-0 top-0 pt-28 left-0 w-full h-full flex items-center justify-center hidden");
+        }, 840);
       }
     } 
   }, [isOpen]);
@@ -67,7 +95,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
         setPath(paths[currentIndex]);
         currentIndex--;
 
-        setTimeout(applyNextPath, 75);
+        setTimeout(applyNextPath, 60);
       }
       else {
         setPath(basePath);
@@ -88,7 +116,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
           version="1.1"
           viewBox="0 0 500 500"
           xmlSpace="preserve"
-          className='h-[100vh] w-[100vh] overflow-hidden'
+          className={paperClasses}
         >
           <defs>
             <pattern id="img1" patternUnits="userSpaceOnUse" width="500" height="500">

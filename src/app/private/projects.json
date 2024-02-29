@@ -1,0 +1,47 @@
+{
+    "projects": [
+        {
+            "name": "L'ELUVIAL",
+            "slug": "l-eluvial",
+            "icon": "",
+            "thumbnail": "",
+            "public": true
+        },
+        {
+            "name": "Waves",
+            "slug": "waves",
+            "icon": "",
+            "thumbnail": "",
+            "public": true
+        },
+        {
+            "name": "Anautiqua",
+            "slug": "anautiqua",
+            "icon": "",
+            "thumbnail": "",
+            "public": true
+        },
+        {
+            "name": "FENUM",
+            "slug": "fenum",
+            "icon": "",
+            "thumbnail": "",
+            "public": false
+        },
+        {
+            "name": "Une Maison En Provence",
+            "slug": "une-maison-en-provence",
+            "icon": "",
+            "thumbnail": "",
+            "public": false
+        },
+        {
+            "name": "VivantMag",
+            "slug": "vivantmag",
+            "icon": "",
+            "thumbnail": "",
+            "public": false
+        }
+    ]
+  }
+  

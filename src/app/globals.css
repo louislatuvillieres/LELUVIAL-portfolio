@@ -10,6 +10,14 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+main {
+  min-height: calc(100vh - 8rem);
+}
+
+.content {
+  min-height: calc(100vh - 13rem);
+}
+
 @keyframes menuOpenBtn1 {
   0% {
     transform: translateY(25%) rotate(12deg);
