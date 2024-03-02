@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       'vt323': ['var(--font-vt323)'],
-      'grandstander': ['var(--font-grandstander)']
+      'schoolbell': ['var(--font-schoolbell)']
     },
     extend: {
       screens: {

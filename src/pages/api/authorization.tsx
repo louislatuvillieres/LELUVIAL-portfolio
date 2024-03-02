@@ -32,7 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
           // Parse the JSON content
           const projectsData = JSON.parse(fileContent).projects;
-          console.log(projectsData);
 
           res.status(200).json({ success: true, data: `This is protected data for ${associatedName}.`, url: pathUrl, projects: projectsData});
         }
@@ -49,9 +48,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           const projectsData = JSON.parse(fileContent).projects;
 
           const filteredData = projectsData.filter((project: { public: boolean; }) => project.public);
-          
-
-          console.log(projectsData);
 
           res.status(200).json({ success: true, data: `This is unprotected data.`, url: pathUrl, projects: filteredData});
         }
