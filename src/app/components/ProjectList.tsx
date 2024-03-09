@@ -8,6 +8,7 @@ interface Project {
   name: string;
   public: boolean;
   slug: string;
+  year: number;
   thumbnail: string;
 }
 
@@ -17,14 +18,19 @@ interface ProjectListProps {
 
 const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   return (
-    <div className='text-right'>
-        {projects.map((project, index) => (
-          <Link href={'/projets/'+project.slug} className='text-4xl font-schoolbell w-full block' key={index}>
-            <Separator/>
-            <span className='block py-2'>{project.name}</span>
-          </Link>
-        ))}
-    </div>
+    <>
+      {projects.map((project, index) => (
+        <div key={index}>
+           <Separator/>
+          <div className='flex flex-wrap w-full justify-between items-center p-2'>
+              <span className='font-plex text-sm'>{project.year}</span>
+              <Link href={'/projets/'+project.slug} className='text-2xl font-medium font-erode'>
+                {project.name}
+              </Link>
+          </div>
+        </div>
+      ))}
+    </>
   );
 };
 

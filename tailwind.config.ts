@@ -9,7 +9,9 @@ const config: Config = {
   theme: {
     fontFamily: {
       'vt323': ['var(--font-vt323)'],
-      'schoolbell': ['var(--font-schoolbell)']
+      'schoolbell': ['var(--font-schoolbell)'],
+      'plex': ['var(--font-plex)'],
+      'erode': ['var(--font-erode)']
     },
     extend: {
       screens: {

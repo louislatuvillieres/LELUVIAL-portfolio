@@ -17,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title = '' }) => {
       <Head>
         <title>{title?title + ' - L\'ELUVIAL': 'L\'ELUVIAL'}</title>
       </Head>
-      <div className="container h-screen mx-auto bg-white">
+      <div className="container h-screen mx-auto bg-white lg:px-16">
         <Header isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
         <Menu isOpen={isMenuOpen} />
         <main>{children}</main>

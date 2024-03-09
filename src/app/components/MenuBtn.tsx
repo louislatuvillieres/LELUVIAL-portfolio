@@ -26,8 +26,8 @@ const MenuBtn: React.FC<MenuBtnProps> = ({setMenuOpen, isMenuOpen}) => {
     setMounted(true);
   }, []);
 
-  const [classes1, setClasses1] = useState('w-16 h-8 flex justify-center items-center');
-  const [classes2, setClasses2] = useState('w-16 h-8 flex justify-center items-center');
+  const [classes1, setClasses1] = useState('w-12 h-6 flex justify-center items-center');
+  const [classes2, setClasses2] = useState('w-12 h-6 flex justify-center items-center');
 
   useEffect(() => {
     if(mounted) {
@@ -36,11 +36,11 @@ const MenuBtn: React.FC<MenuBtnProps> = ({setMenuOpen, isMenuOpen}) => {
         setClasses2(classes2 + " menuBtn2-animate");
         //startAnimation();
       } else {
-        setClasses1("w-16 h-8 flex justify-center items-center menuBtn1-reverse");
-        setClasses2("w-16 h-8 flex justify-center items-center menuBtn2-reverse");
+        setClasses1("w-12 h-6 flex justify-center items-center menuBtn1-reverse");
+        setClasses2("w-12 h-6 flex justify-center items-center menuBtn2-reverse");
         setTimeout(() => {
-          setClasses1("w-16 h-8 flex justify-center items-center");
-          setClasses2("w-16 h-8 flex justify-center items-center");
+          setClasses1("w-12 h-6 flex justify-center items-center");
+          setClasses2("w-12 h-6 flex justify-center items-center");
         },625)
       }
     }

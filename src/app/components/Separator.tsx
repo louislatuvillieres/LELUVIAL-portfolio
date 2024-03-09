@@ -14,8 +14,8 @@ function Separator() {
       xmlSpace="preserve"
     >
       <path
-        fill="#FFF"
-        stroke="#000"
+        fill="none"
+        stroke="#1c120b"
         strokeMiterlimit="10"
         strokeWidth="4"
         d={`M0 ${randomNumber1}L800 ${randomNumber2}`}

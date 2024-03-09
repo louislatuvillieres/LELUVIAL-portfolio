@@ -39,19 +39,14 @@ const IndexProjets: NextPage = () => {
     fetchData();
   }, []);
 
-  const breadcrumbs = [
-    { text: '/', href: '/' },
-    { text: 'Projets', href: '/projets' },
-  ];
-
     return (
-      <Layout>
-        <Breadcrumbs items={breadcrumbs}/>
-        <div className="md:flex md:flex-row p-4 content">
+      <Layout title="Projets">
+        <Breadcrumbs title="Projets"/>
+        <div className="md:flex md:flex-row px-6 py-2 content">
             <div className="w-full hidden md:block basis-1/3">aaaa</div>
-              <div className="w-full h-full basis-2/3">
-                <ProjectList projects={data}/>
-              </div>
+            <div className="w-full h-full basis-2/3">
+              <ProjectList projects={data}/>
+            </div>
         </div>
       </Layout>
     );

@@ -5,6 +5,7 @@
             "slug": "l-eluvial",
             "icon": "",
             "thumbnail": "",
+            "year": 2024,
             "public": true
         },
         {
@@ -12,6 +13,15 @@
             "slug": "une-maison-en-provence",
             "icon": "",
             "thumbnail": "",
+            "year": 2024,
+            "public": false
+        },
+        {
+            "name": "FENUM",
+            "slug": "fenum",
+            "icon": "",
+            "thumbnail": "",
+            "year": 2024,
             "public": false
         },
         {
@@ -19,6 +29,7 @@
             "slug": "waves",
             "icon": "",
             "thumbnail": "",
+            "year": 2023,
             "public": true
         },
         {
@@ -26,6 +37,7 @@
             "slug": "vivantmag",
             "icon": "",
             "thumbnail": "",
+            "year": 2022,
             "public": false
         },
         {
@@ -33,6 +45,7 @@
             "slug": "anautiqua",
             "icon": "",
             "thumbnail": "",
+            "year": 2022,
             "public": true
         }
     ]
