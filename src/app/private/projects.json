@@ -1,20 +1,17 @@
 {
     "projects": [
         {
-            "name": "L'ELUVIAL",
-            "slug": "l-eluvial",
-            "icon": "",
-            "thumbnail": "",
-            "year": 2024,
-            "public": true
-        },
-        {
             "name": "Une Maison En Provence",
             "slug": "une-maison-en-provence",
             "icon": "",
             "thumbnail": "",
             "year": 2024,
-            "public": false
+            "public": false,
+            "keywords": [
+                "WordPress",
+                "Refonte",
+                "Agence Immobilière"
+            ]
         },
         {
             "name": "FENUM",
@@ -22,7 +19,12 @@
             "icon": "",
             "thumbnail": "",
             "year": 2024,
-            "public": false
+            "public": false,
+            "keywords": [
+                "WordPress",
+                "Emploi",
+                "Insertion"
+            ]
         },
         {
             "name": "Waves",
@@ -30,7 +32,12 @@
             "icon": "",
             "thumbnail": "",
             "year": 2023,
-            "public": true
+            "public": true,
+            "keywords": [
+                "Laravel",
+                "React",
+                "Musique"
+            ]
         },
         {
             "name": "VivantMag",
@@ -38,7 +45,12 @@
             "icon": "",
             "thumbnail": "",
             "year": 2022,
-            "public": false
+            "public": false,
+            "keywords": [
+                "WordPress",
+                "M.à.J.",
+                "Spectacle vivant"
+            ]
         },
         {
             "name": "Anautiqua",
@@ -46,7 +58,12 @@
             "icon": "",
             "thumbnail": "",
             "year": 2022,
-            "public": true
+            "public": true,
+            "keywords": [
+                "PHP From Scratch",
+                "Univers Fictif",
+                "Test"
+            ]
         }
     ]
   }

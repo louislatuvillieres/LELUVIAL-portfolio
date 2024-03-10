@@ -8,6 +8,11 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.text-right-justify {
+  text-align: justify;
+  text-align-last: right;/* This property justifies the text */
+}
+
 main {
   min-height: calc(100vh - 8rem);
 }

@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import Header from './Header';
 import Menu from './Menu';
+import Footer from './Footer';
 import { useState } from 'react';
 
 type LayoutProps = {
@@ -21,6 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title = '' }) => {
         <Header isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
         <Menu isOpen={isMenuOpen} />
         <main>{children}</main>
+        <Footer/>
       </div>
     </div>
   );

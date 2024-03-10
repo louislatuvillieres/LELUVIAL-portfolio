@@ -10,8 +10,9 @@ type BreadcrumbProps = {
 
 const Breadcrumbs: FC<BreadcrumbProps> = ({ title }) => {
   return (
-    <div className="text-4xl w-full px-6 mt-10 font-erode font-semibold mb-6 uppercase">
+    <div className="text-5xl w-full px-6 mt-5 font-erode font-medium mb-10 ">
       {title}
+      <hr className='bg-black h-0.5 mt-4'/>
     </div>
   );
 };
