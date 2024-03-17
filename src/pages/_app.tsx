@@ -5,6 +5,13 @@ import { VT323 } from "next/font/google";
 import { Schoolbell } from 'next/font/google';
 import { IBM_Plex_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
+import SmoothScrolling from "@/app/components/SmoothScrolling";
+import Layout from '@/app/components/Layout';
+import { SetStateAction, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import AnimatedSVG from '@/app/components/AnimatedSVG';
+import { AnimatePresence, motion } from 'framer-motion';
+import InnerLayoutAnimate from '@/app/components/InnerLayoutAnimate';
 
 const erode = localFont({
   src: [
@@ -39,12 +46,42 @@ export const ibmplexsans = IBM_Plex_Sans({
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  const router = useRouter();
+  const [pageChanged, setPageChanged] = useState(false);
+
+  const [animateToExit, setAnimateToExit] = useState(false);
+  const [animateToEnter, setAnimateToEnter] = useState(false);
+
   return <div className={vt323.variable+' '+schoolbell.variable+' '+ibmplexsans.variable+' '+ erode.variable}>
     <Head>
       <title>L'ELUVIAL</title>
       <meta name="description" content="Portfolio - Louis Latu-Villières"/>
     </Head>
-    <Component {...pageProps} />
+    <SmoothScrolling>
+      <AnimatedSVG 
+        animateToEnter={animateToEnter} 
+        animateToExit={animateToExit} 
+        setAnimateToEnter={setAnimateToEnter} 
+        setAnimateToExit={setAnimateToExit} 
+      />
+      <Layout>
+        <AnimatePresence 
+          mode="wait" 
+          initial={true} 
+          onExitComplete={() => {
+            setAnimateToEnter(true);
+          }}
+        >
+          <InnerLayoutAnimate
+            setAnimateToExit={setAnimateToExit}
+            key={router.asPath}
+          >
+            <Component {...pageProps}  />
+          </InnerLayoutAnimate>
+        </AnimatePresence>
+      </Layout>
+    </SmoothScrolling>
   </div>;
 }
 

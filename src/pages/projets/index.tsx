@@ -40,12 +40,12 @@ const IndexProjets: NextPage = () => {
   }, []);
 
     return (
-      <Layout title="Projets">
+      <>
         <Breadcrumbs title="Projets"/>
         <div className="px-6 py-2 w-full h-full">
             <ProjectList projects={data}/>
         </div>
-      </Layout>
+      </>
     );
   };
 

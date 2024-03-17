@@ -3,6 +3,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import { title } from 'process';
+import { motion } from 'framer-motion';
 
 type BreadcrumbProps = {
   title: string; 
@@ -10,7 +11,7 @@ type BreadcrumbProps = {
 
 const Breadcrumbs: FC<BreadcrumbProps> = ({ title }) => {
   return (
-    <div className="text-5xl w-full px-6 mt-5 font-erode font-medium mb-10 ">
+    <div className="text-5xl w-full px-6 mt-8 font-erode font-medium mb-10 ">
       {title}
       <hr className='bg-black h-0.5 mt-4'/>
     </div>

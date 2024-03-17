@@ -53,13 +53,13 @@ const MenuBtn: React.FC<MenuBtnProps> = ({setMenuOpen, isMenuOpen}) => {
       <div
         className={classes1}
       >
-        <img src="menu1_25.png" />
+        <img src="menu1_25.png" className='menuBtn'/>
       </div>
       <div
         className={classes2}
         
       >
-        <img src="menu2_25.png" />
+        <img src="menu2_25.png" className='menuBtn' />
       </div>
     </div>
   );

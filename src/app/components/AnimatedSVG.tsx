@@ -1,12 +1,19 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { Dispatch, ReactNode, SetStateAction, useEffect } from 'react';
 import { useState } from 'react';
+import { motion, useAnimate, useMotionValueEvent, useScroll } from "framer-motion";
+import { useRouter } from 'next/router';
+import { Lenis, useLenis } from '@studio-freight/react-lenis';
 
-interface MenuProps {
-  isOpen: boolean;
-}
+interface AnimatedSVGProps {
+    animateToEnter: boolean,
+    animateToExit: boolean,
+    setAnimateToEnter: Dispatch<SetStateAction<boolean>>,
+    setAnimateToExit: Dispatch<SetStateAction<boolean>>
+};
 
-const Menu: React.FC<MenuProps> = ({ isOpen }) => {
+const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit, setAnimateToEnter, setAnimateToExit}) => {
   const [isWideScreen, setIsWideScreen] = useState(false);
+  const lenis = useLenis();
 
   // Effect to update the state on window resize
   useEffect(() => {
@@ -26,14 +33,28 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if(animateToEnter) {
+        setPath(paths[0]);
+        reverseAnimation();
+        setAnimateToEnter(false);/*
+        setTimeout(() => {
+            setScrollPosition(0);
+        }, 1);*/
+    }
+  }, [animateToEnter]);
+  useEffect(() => {
+    if(animateToExit) {
+        lenis?.scrollTo(0);
+        startAnimation();
+        setAnimateToExit(false);
+    }
+  }, [animateToExit]);
+
   // Determine the appropriate classes based on screen size
   const paperClasses = isWideScreen
     ? 'h-[100vw] w-[100vw] overflow-hidden'
-    : 'h-[100vh] w-[100vh] overflow-hidden';
-
-  const [menuClasses, setMenuClasses] = useState("absolute z-40 top-0 pt-28 left-0 w-full h-full flex items-center justify-center hidden");
-
-  const [mounted, setMounted] = useState(false);
+    : 'h-[110vh] w-[100vh] overflow-hidden';
 
   const paths = [
     "M0 451L0 500 500 500 500 436 378 455 201 433 110 445 75 441z",
@@ -49,24 +70,6 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
     "M0 18L0 500 500 500 500 13 403 20 328 9 158 24 77 7z",
     "M0 0L0 500 500 500 500 0z"
   ];
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if(mounted) {
-      if (isOpen) {
-        setMenuClasses("absolute z-40 top-0 pt-28 left-0 w-full h-full flex items-center justify-center");
-        startAnimation();
-      } else {
-        reverseAnimation();
-        setTimeout(() => {
-          setMenuClasses("absolute z-40 top-0 pt-28 left-0 w-full h-full flex items-center justify-center hidden");
-        }, 840);
-      }
-    } 
-  }, [isOpen]);
 
   const [path, setPath] = useState('M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z');
 
@@ -95,7 +98,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
         setPath(paths[currentIndex]);
         currentIndex--;
 
-        setTimeout(applyNextPath, 60);
+        setTimeout(applyNextPath, 75);
       }
       else {
         setPath(basePath);
@@ -105,40 +108,38 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
     applyNextPath();
   };
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (prev) => {
+    setScrollPosition(prev);
+  })
+
   return (
-    <div className={menuClasses}>
-      <div className="absolute w-full h-full overflow-hidden top-0 textures z-40">
+    <div style={{top: scrollPosition}} className='h-[110vh] w-[100vw] absolute left-0 overflow-hidden pointer-events-none z-50'>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          x="0"
-          y="0"
-          enableBackground="new 0 0 500 500"
-          version="1.1"
-          viewBox="0 0 500 500"
-          xmlSpace="preserve"
-          className={paperClasses}
+            xmlns="http://www.w3.org/2000/svg"
+            x="0"
+            y="0"
+            enableBackground="new 0 0 500 500"
+            version="1.1"
+            viewBox="0 0 500 500"
+            xmlSpace="preserve"
+            className={paperClasses}
         >
-          <defs>
+            <defs>
             
             <pattern id="img1" patternUnits="userSpaceOnUse" width="500" height="500">
-              <image href="./paper_texture.jpg" x="0" y="0" width="500" height="500" />
+                <image href="./paper_texture.jpg" x="0" y="0" width="500" height="500" />
             </pattern>
-          </defs>
-          <style type="text/css">
+            </defs>
+            <style type="text/css">
             {".st0{fill:url(#img1)}"}
-          </style>
-          <path d={path} className="st0"></path>
+            </style>
+            <path d={path} className="st0"></path>
         </svg>
-      </div>
-      <div className='w-full h-full relative hidden'>
-        <ul className="list-none mx-auto w-full h-full font-pally-medium text-5xl flex flex-col items-center justify-evenly pt-24  pb-64">
-          <li>Accueil</li>
-          <li>A propos</li>
-          <li>Projets</li>
-        </ul>
-      </div>
     </div>
   );
 };
 
-export default Menu;
+export default AnimatedSVG;

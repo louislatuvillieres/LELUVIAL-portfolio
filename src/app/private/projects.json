@@ -4,65 +4,55 @@
             "name": "Une Maison En Provence",
             "slug": "une-maison-en-provence",
             "icon": "",
-            "thumbnail": "",
+            "thumbnail": "/projects/unemaisonenprovence.png",
             "year": 2024,
             "public": false,
             "keywords": [
                 "WordPress",
-                "Refonte",
-                "Agence Immobilière"
-            ]
-        },
-        {
-            "name": "FENUM",
-            "slug": "fenum",
-            "icon": "",
-            "thumbnail": "",
-            "year": 2024,
-            "public": false,
-            "keywords": [
-                "WordPress",
-                "Emploi",
-                "Insertion"
+                "PHP",
+                "JQuery",
+                "MySQL"
             ]
         },
         {
             "name": "Waves",
             "slug": "waves",
             "icon": "",
-            "thumbnail": "",
+            "thumbnail": "https://dummyimage.com/600x500/cfcfcf/fff",
             "year": 2023,
             "public": true,
             "keywords": [
                 "Laravel",
                 "React",
-                "Musique"
+                "MySQL",
+                "Merise"
             ]
         },
         {
             "name": "VivantMag",
             "slug": "vivantmag",
             "icon": "",
-            "thumbnail": "",
+            "thumbnail": "/projects/vivantmag.png",
             "year": 2022,
             "public": false,
             "keywords": [
                 "WordPress",
-                "M.à.J.",
-                "Spectacle vivant"
+                "PHP",
+                "MySQL"
             ]
         },
         {
             "name": "Anautiqua",
             "slug": "anautiqua",
             "icon": "",
-            "thumbnail": "",
+            "thumbnail": "https://dummyimage.com/600x500/cfcfcf/fff",
             "year": 2022,
             "public": true,
             "keywords": [
                 "PHP From Scratch",
-                "Univers Fictif",
-                "Test"
+                "JQuery",
+                "MySQL",
+                "Merise"
             ]
         }
     ]
