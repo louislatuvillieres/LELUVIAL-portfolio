@@ -16,11 +16,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   
   return (
     <>
-      <div className="container mx-auto lg:px-16 ">
+      <div className="container min-h-screen mx-auto lg:px-16">
         <Header isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen}/>
         <Menu isOpen={isMenuOpen} />
         <main>{children}</main>
-        <Footer/>
       </div>
     </>
   );

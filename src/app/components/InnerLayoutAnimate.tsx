@@ -30,15 +30,7 @@ const InnerLayoutAnimate: React.FC<InnerLayoutAnimateProps> = (
   
   return (
     <motion.div
-        initial={{opacity: 1}}
-        animate={{opacity: 1}}
-        exit={{opacity:1}}
-        transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            duration: 2,
-        }}
+      className='w-full min-h-[91.5vh]'
     >
         {children}
     </motion.div>

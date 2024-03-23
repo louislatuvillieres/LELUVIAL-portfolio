@@ -1,5 +1,3 @@
-// pages/api/handleHash.ts
-
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
@@ -18,11 +16,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Get user's IP address from the request
       const ipAddress = req.socket.remoteAddress;
 
+      if (!ipAddress) {
+        throw new Error('Unable to determine IP address.');
+      }
+
       if (parsedAccessData && parsedAccessData.tokens && parsedAccessData.tokens[token]) {
         const name = parsedAccessData.tokens[token];
 
         // Read existing data file
-        let parsedDataFile: { [key: string]: string | undefined } = {};
+        let parsedDataFile: { [key: string]: string[] } = {};
         try {
           const dataFileContent = await fs.promises.readFile(filePathData, 'utf-8');
           parsedDataFile = JSON.parse(dataFileContent);
@@ -30,14 +32,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           console.error('Error reading data file:', err);
         }
 
+        // Initialize name's array if it doesn't exist
+        if (!parsedDataFile[name]) {
+          parsedDataFile[name] = [];
+        }
+
         // Check if the IP address is already present
-        if (parsedDataFile[name] === ipAddress) {
+        if (parsedDataFile[name].includes(ipAddress)) {
           res.status(200).json({ success: true, message: 'Token is valid', name, ipAddress });
           return; // Exit early if IP address is already present
         }
 
-        // Store name and corresponding IP in the data file
-        parsedDataFile[name] = ipAddress;
+        // Push ipAddress into the array
+        parsedDataFile[name].push(ipAddress);
 
         // Write updated data file
         await fs.promises.writeFile(filePathData, JSON.stringify(parsedDataFile, null, 2), 'utf-8');

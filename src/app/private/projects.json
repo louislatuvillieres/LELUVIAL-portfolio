@@ -4,7 +4,7 @@
             "name": "Une Maison En Provence",
             "slug": "une-maison-en-provence",
             "icon": "",
-            "thumbnail": "/projects/unemaisonenprovence.png",
+            "thumbnail": "https://dummyimage.com/600x400/cfcfcf/fff",
             "year": 2024,
             "public": false,
             "keywords": [
@@ -12,13 +12,17 @@
                 "PHP",
                 "JQuery",
                 "MySQL"
+            ],
+            "images": [
+                "/project_illu/umep_1.png",
+                "/project_illu/umep_2.png"
             ]
         },
         {
             "name": "Waves",
             "slug": "waves",
             "icon": "",
-            "thumbnail": "https://dummyimage.com/600x500/cfcfcf/fff",
+            "thumbnail": "https://dummyimage.com/600x400/cfcfcf/fff",
             "year": 2023,
             "public": true,
             "keywords": [
@@ -26,26 +30,34 @@
                 "React",
                 "MySQL",
                 "Merise"
+            ],
+            "images": [
+                "/project_illu/waves_1.png",
+                "/project_illu/waves_2.png"
             ]
         },
         {
             "name": "VivantMag",
             "slug": "vivantmag",
             "icon": "",
-            "thumbnail": "/projects/vivantmag.png",
+            "thumbnail": "https://dummyimage.com/600x400/cfcfcf/fff",
             "year": 2022,
-            "public": false,
+            "public": true,
             "keywords": [
                 "WordPress",
                 "PHP",
                 "MySQL"
+            ],
+            "images": [
+                "/project_illu/vivantmag_1.png",
+                "/project_illu/vivantmag_2.png"
             ]
         },
         {
             "name": "Anautiqua",
             "slug": "anautiqua",
             "icon": "",
-            "thumbnail": "https://dummyimage.com/600x500/cfcfcf/fff",
+            "thumbnail": "https://dummyimage.com/600x400/cfcfcf/fff",
             "year": 2022,
             "public": true,
             "keywords": [
@@ -53,6 +65,10 @@
                 "JQuery",
                 "MySQL",
                 "Merise"
+            ],
+            "images": [
+                "/project_illu/anautiqua_1.png",
+                "/project_illu/anautiqua_2.png"
             ]
         }
     ]

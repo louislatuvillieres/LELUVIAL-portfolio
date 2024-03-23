@@ -11,7 +11,8 @@ const config: Config = {
       'vt323': ['var(--font-vt323)'],
       'schoolbell': ['var(--font-schoolbell)'],
       'plex': ['var(--font-plex)'],
-      'erode': ['var(--font-erode)']
+      'erode': ['var(--font-erode)'],
+      'londrina': ['var(--font-londrina)']
     },
     extend: {
       screens: {

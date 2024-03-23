@@ -37,10 +37,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
     if(animateToEnter) {
         setPath(paths[0]);
         reverseAnimation();
-        setAnimateToEnter(false);/*
-        setTimeout(() => {
-            setScrollPosition(0);
-        }, 1);*/
+        setAnimateToEnter(false);
     }
   }, [animateToEnter]);
   useEffect(() => {
@@ -54,7 +51,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
   // Determine the appropriate classes based on screen size
   const paperClasses = isWideScreen
     ? 'h-[100vw] w-[100vw] overflow-hidden'
-    : 'h-[110vh] w-[100vh] overflow-hidden';
+    : 'h-[100vh] w-[100vh] overflow-hidden';
 
   const paths = [
     "M0 451L0 500 500 500 500 436 378 455 201 433 110 445 75 441z",
@@ -108,15 +105,8 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
     applyNextPath();
   };
 
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const { scrollY } = useScroll();
-  useMotionValueEvent(scrollY, "change", (prev) => {
-    setScrollPosition(prev);
-  })
-
   return (
-    <div style={{top: scrollPosition}} className='h-[110vh] w-[100vw] absolute left-0 overflow-hidden pointer-events-none z-50'>
+    <div  className='h-[100vh] w-[100vw] fixed left-0 overflow-hidden pointer-events-none z-[60]'>
         <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0"

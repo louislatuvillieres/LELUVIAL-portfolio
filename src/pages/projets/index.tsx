@@ -1,53 +1,85 @@
+// pages/projets/index.tsx
+
 import Layout from "@components/Layout";
-import { NextPage } from "next";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
-import { useEffect, useState } from "react";
 import ProjectList from "@/app/components/ProjectList";
+import { GetServerSideProps, NextPage } from "next";
+import fs from 'fs';
+import path from 'path';
 
-const IndexProjets: NextPage = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<[]>([]);
-  const [error, setError] = useState<string | null>(null);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'app', 'private', 'authorization.json');
+    const fileContent = await fs.promises.readFile(filePath, 'utf-8');
+    const parsedData = JSON.parse(fileContent);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const currentPageUrl = window.location.href;
+    // Get user's IP address from the request
+    const ipAddress = context.req.socket.remoteAddress;
 
-        const response = await fetch('/api/authorization', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Page-Url': currentPageUrl, // Pass the page URL as a custom header
-          },
-        });
-
-        if (response.ok) {
-          const result = await response.json();
-          
-          setData(result.projects);
-        } else {
-          setError('Unauthorized');
-        }
-      } catch (error) {
-        setError('Internal Server Error');
-      } finally {
-        setLoading(false);
+    // Check if the IP address is present in the authorization.json file
+    const associatedNames: string[] = [];
+    for (const [name, ips] of Object.entries(parsedData)) {
+      if (Array.isArray(ips) && ips.includes(ipAddress)) {
+        associatedNames.push(name);
+      } else if (ips === ipAddress) {
+        associatedNames.push(name);
       }
+    }
+
+    if (associatedNames.length > 0) {
+      // If the IP is associated with a name, return the protected data
+      // Define the path to your JSON file
+      const projectsFilePath = path.join(process.cwd(), 'src', 'app', 'private', 'projects.json');
+
+      // Read the file content
+      const projectsFileContent = await fs.promises.readFile(projectsFilePath, 'utf-8');
+
+      // Parse the JSON content
+      const projectsData = JSON.parse(projectsFileContent).projects;
+
+      return {
+        props: {
+          projects: projectsData,
+        },
+      }
+    } else {
+      // Define the path to your JSON file
+      const projectsFilePath = path.join(process.cwd(), 'src', 'app', 'private', 'projects.json');
+
+      // Read the file content
+      const projectsFileContent = await fs.promises.readFile(projectsFilePath, 'utf-8');
+
+      // Parse the JSON content
+      const projectsData = JSON.parse(projectsFileContent).projects;
+
+      // Filter projects data for public projects
+      const filteredData = projectsData.filter((project: { public: boolean }) => project.public);
+
+      return {
+        props: {
+          projects: filteredData,
+        },
+      };
+    }
+  } catch (error) {
+    console.error('Error reading authorization.json:', error);
+    return {
+      props: {
+        projects: [],
+      },
     };
+  }
+};
 
-    fetchData();
-  }, []);
-
-    return (
-      <>
-        <Breadcrumbs title="Projets"/>
-        <div className="px-6 py-2 w-full h-full">
-            <ProjectList projects={data}/>
-        </div>
-      </>
-    );
-  };
+const IndexProjets: NextPage<{ projects: [] }> = ({ projects }) => {
+  return (
+    <>
+      <Breadcrumbs title="Projets" />
+      <div className="px-6 py-2 w-full h-full">
+        <ProjectList projects={projects} />
+      </div>
+    </>
+  );
+};
 
 export default IndexProjets;
-

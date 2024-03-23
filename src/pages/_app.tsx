@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { VT323 } from "next/font/google";
 import { Schoolbell } from 'next/font/google';
 import { IBM_Plex_Sans } from 'next/font/google';
+import { Londrina_Sketch } from 'next/font/google';
 import localFont from 'next/font/local';
 import SmoothScrolling from "@/app/components/SmoothScrolling";
 import Layout from '@/app/components/Layout';
@@ -44,6 +45,11 @@ export const ibmplexsans = IBM_Plex_Sans({
   variable: "--font-plex",
   subsets:['latin']
 })
+export const londrina = Londrina_Sketch({
+  weight:['400'],
+  variable: "--font-londrina",
+  subsets:['latin']
+})
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -53,9 +59,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [animateToExit, setAnimateToExit] = useState(false);
   const [animateToEnter, setAnimateToEnter] = useState(false);
 
-  return <div className={vt323.variable+' '+schoolbell.variable+' '+ibmplexsans.variable+' '+ erode.variable}>
+  return <div className={vt323.variable+' '+schoolbell.variable+' '+ibmplexsans.variable+' '+ erode.variable + ' ' + londrina.variable}>
     <Head>
-      <title>L'ELUVIAL</title>
+      <title>L&apos;ELUVIAL</title>
       <meta name="description" content="Portfolio - Louis Latu-Villières"/>
     </Head>
     <SmoothScrolling>

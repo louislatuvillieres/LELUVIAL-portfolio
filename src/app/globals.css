@@ -8,6 +8,22 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+/* Webkit (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mozilla Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Internet Explorer/Edge */
+* {
+  -ms-overflow-style: none;
+}
+
+
 .text-right-justify {
   text-align: justify;
   text-align-last: right;/* This property justifies the text */
@@ -92,5 +108,188 @@ main {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.appearFromTop {
+  position: absolute;
+  top: -100%; /* Move the image above the viewport */
+  animation: slideInFromTop 1.75s steps(1, jump-end) forwards;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    top: -90%;
+    transform: rotate(-25deg) translateX(30%);
+  }
+  10% {
+    top: -82%;
+    transform: rotate(12deg) translateX(26%);
+  }
+  20% {
+    top : -74%;
+    transform: rotate(-14deg) translateX(21%);
+  }
+  30% {
+    top: -59%;
+    transform: rotate(24deg) translateX(14%);
+  }
+  40% {
+    top : -39%;
+    transform: rotate(-10deg) translateX(12%);
+  }
+  50% {
+    top: -30%;
+    transform: rotate(12deg) translateX(11%);
+  }
+  60% {
+    top: -20%;
+    transform: rotate(-8deg) translateX(9%);
+  }
+  70% {
+    top: -15%;
+    transform: rotate(13deg) translateX(8%);
+  }
+  80% {
+    top: -10%;
+    transform: rotate(-6deg) translateX(5%) translateY(2rem);
+  }
+  90% {
+    top: -5%;
+    transform: rotate(5deg) translateX(3%) translateY(5rem);
+  }
+  100% {
+      top: 0;
+      transform: rotate(-2deg) translateY(9rem);
+  }
+}
+
+.appearFromBottom {
+  position: absolute;
+  bottom:0;
+  transform: translateY(500%); /* Move the image below the viewport */
+  animation: slideInFromBottom 1.5s steps(1, jump-end) 1.25s forwards;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    bottom:0;
+    transform: rotate(25deg) translateX(-200%) translateY(500%);
+  }
+  10% {
+    bottom: -45%;
+    transform: rotate(-12deg) translateX(-181%) translateY(450%);
+  }
+  20% {
+    bottom : -40%;
+    transform: rotate(14deg) translateX(-171%) translateY(300%);
+  }
+  30% {
+    bottom: -35%;
+    transform: rotate(-24deg) translateX(-139%) translateY(175%);
+  }
+  40% {
+    bottom : -30%;
+    transform: rotate(10deg) translateX(-102%) translateY(85%);
+  }
+  50% {
+    bottom: -25%;
+    transform: rotate(-12deg) translateX(-98%) translateY(49%);
+  }
+  60% {
+    bottom: -20%;
+    transform: rotate(8deg) translateX(-89%) translateY(8%);
+  }
+  70% {
+    bottom: -15%;
+    transform: rotate(-13deg) translateY(-2rem) translateX(-76%);
+  }
+  80% {
+    bottom: -10%;
+    transform: rotate(6deg) translateY(-5rem) translateX(-72%);
+  }
+  90% {
+    bottom: -5%;
+    transform: rotate(-5deg) translateY(-6rem) translateX(-69%);
+  }
+  100% {
+      bottom: 0;
+      transform: rotate(6deg) translateY(-8rem) translateX(-65%);
+  }
+}
+
+.appearFromLeft {
+  position: absolute;
+  left: -200%; /* Move the image below the viewport */
+  animation: slideInFromLeft 1.5s steps(1, jump-end) 1.25s forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    left: -100%;
+    transform: rotate(25deg) translateX(-30%);
+  }
+  10% {
+    left: -90%;
+    transform: rotate(-12deg) translateX(-26%);
+  }
+  20% {
+    left : -80%;
+    transform: rotate(14deg) translateX(-21%);
+  }
+  30% {
+    left: -70%;
+    transform: rotate(-24deg) translateX(-14%);
+  }
+  40% {
+    left : -60%;
+    transform: rotate(10deg) translateX(-12%);
+  }
+  50% {
+    left: -50%;
+    transform: rotate(-12deg) translateY(3%) translateX(1%);
+  }
+  60% {
+    left: -40%;
+    transform: rotate(8deg) translateY(7%) translateX(4%);
+  }
+  70% {
+    left: -30%;
+    transform: rotate(-13deg) translateY(13%) translateX(10%);
+  }
+  80% {
+    left: -20%;
+    transform: rotate(6deg) translateY(19%) translateX(14%);
+  }
+  90% {
+    left: -10%;
+    transform: rotate(-5deg) translateY(23%) translateX(17%);
+  }
+  100% {
+      left: 0;
+      transform: rotate(0deg) translateY(27%) translateX(20%);
+  }
+}
+@supports (height: 100svh) {
+  .h-svh {
+    height: 100svh !important;
+  }
+}
+
+.h-svh {
+  height: 100vh;
+}
+
+@media (min-height: 746px) and (max-width: 640px) {
+  .indexImgContainer {
+    top: -4rem !important;
+    
+  }
+}
+
+@media (max-height: 817px) and (max-width: 640px) {
+  .indexImgContainer {
+    transform: scale(.75);
+    
   }
 }

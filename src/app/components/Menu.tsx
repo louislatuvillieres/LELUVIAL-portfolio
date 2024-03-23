@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { ReactNode, useEffect } from 'react';
 import { useState } from 'react';
 
@@ -58,9 +59,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
     if(mounted) {
       if (isOpen) {
         setMenuClasses("absolute z-40 top-0 pt-28 left-0 w-full h-full flex items-center justify-center");
-        startAnimation();
       } else {
-        reverseAnimation();
         setTimeout(() => {
           setMenuClasses("absolute z-40 top-0 pt-28 left-0 w-full h-full flex items-center justify-center hidden");
         }, 840);
@@ -70,71 +69,13 @@ const Menu: React.FC<MenuProps> = ({ isOpen }) => {
 
   const [path, setPath] = useState('M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z');
 
-  const startAnimation = () => {
-    let currentIndex = 0;
-
-    const applyNextPath = () => {
-      if (currentIndex < paths.length) {
-        setPath(paths[currentIndex]);
-        currentIndex++;
-
-        setTimeout(applyNextPath, 75);
-      }
-    };
-
-    applyNextPath();
-  };
-
-  const reverseAnimation = () => {
-    const basePath = 'M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z';
-
-    let currentIndex = paths.length-1;
-
-    const applyNextPath = () => {
-      if (currentIndex >= 0) {
-        setPath(paths[currentIndex]);
-        currentIndex--;
-
-        setTimeout(applyNextPath, 60);
-      }
-      else {
-        setPath(basePath);
-      }
-    };
-
-    applyNextPath();
-  };
-
   return (
     <div className={menuClasses}>
-      <div className="absolute w-full h-full overflow-hidden top-0 textures z-40">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          x="0"
-          y="0"
-          enableBackground="new 0 0 500 500"
-          version="1.1"
-          viewBox="0 0 500 500"
-          xmlSpace="preserve"
-          className={paperClasses}
-        >
-          <defs>
-            
-            <pattern id="img1" patternUnits="userSpaceOnUse" width="500" height="500">
-              <image href="./paper_texture.jpg" x="0" y="0" width="500" height="500" />
-            </pattern>
-          </defs>
-          <style type="text/css">
-            {".st0{fill:url(#img1)}"}
-          </style>
-          <path d={path} className="st0"></path>
-        </svg>
-      </div>
-      <div className='w-full h-full relative hidden'>
+      <div className='w-full h-full relative z-[100]'>
         <ul className="list-none mx-auto w-full h-full font-pally-medium text-5xl flex flex-col items-center justify-evenly pt-24  pb-64">
-          <li>Accueil</li>
-          <li>A propos</li>
-          <li>Projets</li>
+          <li><Link href="/">Accueil</Link></li>
+          <li><Link href="/projets">Projets</Link></li>
+          <li><Link href="/parcours">Parcours</Link></li>
         </ul>
       </div>
     </div>
