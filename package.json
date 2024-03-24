@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.46",
+    "express": "^4.19.1",
     "framer-motion": "^11.0.14",
+    "heroku-ssl-redirect": "^0.1.1",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",

@@ -18,7 +18,13 @@ interface Project {
     keywords: string[],
     images: string[],
     link: string,
-    description: string
+    description: string,
+    description1: string,
+    description2: string,
+    screenshot1: [],
+    screenshot2: [],
+    videos: string[],
+    attachment: string
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -51,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             // Parse the JSON content
             const projectsData = JSON.parse(projectsFileContent).projects;
     
-            const foundProject = projectsData.find((project: Project) => project.slug === "waves");
+            const foundProject = projectsData.find((project: Project) => project.slug === "vivantmag");
     
             if (foundProject) {
                 return {
@@ -77,7 +83,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 };
 
-const Waves: NextPage<{ project: Project }> = ({ project }) => {
+const VivantMag: NextPage<{ project: Project }> = ({ project }) => {
 if (!project) {
     return <div>Loading...</div>; // Or any other fallback UI
 }
@@ -88,4 +94,4 @@ if (!project) {
   );
 };
 
-export default Waves;
+export default VivantMag;

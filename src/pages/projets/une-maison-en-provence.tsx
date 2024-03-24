@@ -18,7 +18,12 @@ interface Project {
     keywords: string[],
     images: string[],
     link: string,
-    description: string
+    description: string,
+    description1: string,
+    description2: string,
+    screenshot1: [],
+    screenshot2: [],
+    videos: string[]
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -51,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             // Parse the JSON content
             const projectsData = JSON.parse(projectsFileContent).projects;
     
-            const foundProject = projectsData.find((project: Project) => project.slug === "waves");
+            const foundProject = projectsData.find((project: Project) => project.slug === "une-maison-en-provence");
     
             if (foundProject) {
                 return {

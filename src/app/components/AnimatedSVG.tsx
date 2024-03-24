@@ -120,7 +120,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
             <defs>
             
             <pattern id="img1" patternUnits="userSpaceOnUse" width="500" height="500">
-                <image href="./paper_texture.jpg" x="0" y="0" width="500" height="500" />
+                <image href="/paper_texture.jpg" x="0" y="0" width="500" height="500" />
             </pattern>
             </defs>
             <style type="text/css">

@@ -3,6 +3,7 @@ import React from 'react';
 import Separator from './Separator';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface Project {
   icon: string;
@@ -74,24 +75,25 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
               <div className='font-erode font-light text-3xl italic'>0{index+1}</div>
               <div className='md:h-[20rem] mt-4 p-6 relative'>
                 {project.images && project.images[0] && 
-                <motion.img src={project.images[0]} 
-                className={'absolute ' + 
-                (project.slug==="une-maison-en-provence" ? 'md:w-32 w-24 top-0 left-0 -translate-x-2 -translate-y-3 -rotate-1' : 
-                (project.slug==="waves" ? 'md:w-48 w-32 top-0 left-0 -translate-x-2 -translate-y-3 rotate-2' : 
-                (project.slug==="vivantmag" ? 'md:w-40 w-28 bottom-0 left-0 -translate-x-1 translate-y-1 -rotate-1' : 
-                (project.slug==="anautiqua" ? 'md:w-32 w-24 top-0 left-0 -translate-x-1' : ''))))} 
-                variants={childrenImg}
-                />}
-                <img src={project.thumbnail} className='h-full w-fit'/>
+                  <motion.div className='absolute w-full h-full top-0 left-0' variants={childrenImg}>
+                    <Image priority={true} alt={project.name} src={project.images[0]} width={1000} height={1000} className={'absolute ' + 
+                      (project.slug==="une-maison-en-provence" ? 'md:w-32 w-24 top-0 left-0 -translate-x-2 -translate-y-3 -rotate-1' : 
+                      (project.slug==="waves" ? 'md:w-48 w-32 bottom-0 left-0 -translate-x-2 translate-y-3 rotate-2' : 
+                      (project.slug==="vivantmag" ? 'md:w-40 w-28 bottom-0 left-0 -translate-x-1 translate-y-1 -rotate-1' : 
+                      (project.slug==="anautiqua" ? 'md:w-32 w-24 top-0 left-0 -translate-x-1' : ''))))} 
+                    />
+                  </motion.div>
+                }
+                <Image alt={project.name} src={project.thumbnail} width={600} height={400} priority={true} className='h-full w-fit'/>
                 {project.images && project.images[1] && 
-                <motion.img src={project.images[1]} 
-                className={'absolute ' + 
-                (project.slug==="une-maison-en-provence" ?'md:w-48 w-32 bottom-0 right-0 translate-x-3 translate-y-3': 
-                (project.slug==="waves" ? 'md:w-36 w-24 bottom-0 right-0 translate-x-4 translate-y-3 -rotate-2' : 
-                (project.slug==="vivantmag" ? 'md:w-48 w-32 top-0 right-0 translate-x-2 -translate-y-3 rotate-3' : 
-                (project.slug==="anautiqua" ? 'md:w-32 w-24 bottom-0 right-0 translate-x-2' : '')))) } 
-                variants={childrenImg}
-                />}
+                <motion.div className='absolute w-full h-full top-0 left-0' variants={childrenImg}>
+                  <Image priority={true} alt={project.name} src={project.images[1]} width={1000} height={1000}
+                  className={'absolute ' + 
+                  (project.slug==="une-maison-en-provence" ?'md:w-48 w-32 bottom-0 right-0 translate-x-3 translate-y-3': 
+                  (project.slug==="waves" ? 'md:w-36 w-24 top-0 right-0 translate-x-4 -translate-y-3 -rotate-2' : 
+                  (project.slug==="vivantmag" ? 'md:w-48 w-32 top-0 right-0 translate-x-2 -translate-y-3 rotate-3' : 
+                  (project.slug==="anautiqua" ? 'md:w-32 w-24 bottom-0 right-0 translate-x-2' : '')))) } 
+                /></motion.div>}
               </div>
               <div className='mx-1 mt-6'>
                 <div className='font-plex font-medium text-2xl -mt-2 '>{project.name}</div>
