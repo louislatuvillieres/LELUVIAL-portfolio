@@ -55,15 +55,15 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
 
   const paths = [
     "M0 451L0 500 500 500 500 436 378 455 201 433 110 445 75 441z",
-    "M0 373L0 500 500 500 500 388 405 380 314 398 205 382 81 420z",
+    //"M0 373L0 500 500 500 500 388 405 380 314 398 205 382 81 420z",
     "M0 360L0 500 500 500 500 351 403 349 329 326 205 344 81 326z",
-    "M0 307L0 500 500 500 500 295 403 293 329 263 205 286 81 263z",
+    //"M0 307L0 500 500 500 500 295 403 293 329 263 205 286 81 263z",
     "M0 214L0 500 500 500 500 229 405 222 314 240 204 223 80 262z",
-    "M0 198L0 500 500 500 500 184 379 202 201 180 110 192 75 188z",
+    //"M0 198L0 500 500 500 500 184 379 202 201 180 110 192 75 188z",
     "M0 175L0 500 500 500 500 164 403 161 328 132 204 154 81 132z",
-    "M0 82L0 500 500 500 500 97 405 90 313 108 204 91 80 130z",
+    //"M0 82L0 500 500 500 500 97 405 90 313 108 204 91 80 130z",
     "M0 74L0 500 500 500 500 60 378 78 201 56 110 68 75 64z",
-    "M0 27L0 500 500 500 500 42 405 35 314 53 205 36 78 56z",
+    //"M0 27L0 500 500 500 500 42 405 35 314 53 205 36 78 56z",
     "M0 18L0 500 500 500 500 13 403 20 328 9 158 24 77 7z",
     "M0 0L0 500 500 500 500 0z"
   ];
@@ -78,7 +78,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
         setPath(paths[currentIndex]);
         currentIndex++;
 
-        setTimeout(applyNextPath, 75);
+        setTimeout(applyNextPath, 65);
       }
     };
 
@@ -95,7 +95,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
         setPath(paths[currentIndex]);
         currentIndex--;
 
-        setTimeout(applyNextPath, 75);
+        setTimeout(applyNextPath, 65);
       }
       else {
         setPath(basePath);

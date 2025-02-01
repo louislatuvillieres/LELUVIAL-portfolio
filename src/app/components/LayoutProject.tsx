@@ -41,7 +41,7 @@ const LayoutProject: NextPage<{ project: Project }> = ({ project }) => {
                     <div className="flex h-8 justify-center">
                         {project.keywords.map((keyword, index) => (
                             <div key={index} className="group relative">
-                                <Image priority={true} className="mx-3 h-8 w-auto" width={600} height={600} alt={keyword} src={'/skills/'+keyword + '.png'} />
+                                <Image priority={true} className="mx-3 h-8 w-auto" width={600} height={600} alt={keyword} src={'/skills/'+ keyword.toLowerCase().replace(/ /g, "-") + '.png'} />
                                 <div className="absolute w-max bottom-0 left-[50%] font-plex font-light -translate-x-1/2 translate-y-full opacity-0 group-hover:opacity-100 transition-all">{keyword}</div>
                             </div>
                         ))}

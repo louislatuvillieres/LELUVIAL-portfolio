@@ -3,9 +3,21 @@ import Layout from "@components/Layout";
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Parcours: React.FC = () => {
     const evenements = [
+        {
+            'vinyl': {
+                'img': '/album_covers/charm.jpg',
+                'text': 'Clairo - Charm'
+            },
+            'title': 'Licence 2',
+            'options': 'Informatique',
+            'date': '2025',
+            'lieu': 'Université Paris Saclay',
+            'description': ''
+        },
         {
             'vinyl': {
                 'img': '/album_covers/evermore.jpg',
@@ -81,10 +93,10 @@ const Parcours: React.FC = () => {
                     }}
                 >
                     <div className=' font-erode font-light text-3xl italic'>{evenement.date}</div>
-                    <div className={(index % 2 === 0 ?'mr-auto':'ml-auto')+' w-fit flex relative z-0 mt-4'}>
-                        {(index % 2 === 1 ? <img src='/vinyl_50.png' className='h-44 rotate-180'></img> : '')}
-                        <img className='w-44 z-10' src={evenement.vinyl.img}/>
-                        {(index % 2 === 0 ? <img src='/vinyl_50.png' className='h-44'></img> : '')}
+                    <div className={(index % 2 === 0 ?'mr-auto':'ml-auto')+' w-fit h-44 flex relative z-0 mt-4'}>
+                        {(index % 2 === 1 ? <Image src='/vinyl_50.png' className='w-auto rotate-180 translate-x-px' width='263' height='535' alt=''></Image> : '')}
+                        <Image className='w-44 z-10' src={evenement.vinyl.img} width='1000' height='1000' alt=''/>
+                        {(index % 2 === 0 ? <Image src='/vinyl_50.png' className='w-auto' width='263' height='535' alt=''></Image> : '')}
                     </div>
                     <div className='italic font-plex font-light'>{evenement.vinyl.text}</div>
                     <div className='font-plex text-3xl font-semibold leading-8 mt-2'>{evenement.title}</div>

@@ -82,7 +82,7 @@
                 "/project_illu/anautiqua_1.png",
                 "/project_illu/anautiqua_2.png"
             ],
-            "link": "",
+            "link": "https://anautiqua.leluvial.com",
             "description" : "Le projet Anautiqua se base sur un univers fictif créé par Noah Brunet, un ami. Il s'agit d'un site internet permettant de passer un “test de personnalité” permettant de relier la personne qui passe le test à l'un des pays de l'univers d'Anautiqua.",
             "description1" : "Nous arrivons donc d'abord sur une page vitrine, avec possibilité de s'inscrire, une page de connexion, ainsi qu'une page contact. Est aussi géré le compte, avec des autorisations différentes selon si l'on est administrateur ou non, permettant par exemple l'édition du test de personnalité.",
             "screenshot1" : ["/projects/anautiqua_screenshot_1.png", 1920, 876],
