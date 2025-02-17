@@ -29,7 +29,7 @@ interface Project {
     attachment?: string
 }
 
-const LayoutProject: NextPage<{ project: Project }> = ({ project }) => {
+const LayoutProject: NextPage<{ project: Project, previousProject: Project | null, nextProject: Project | null }> = ({ project }) => {
   return (
     <>
       <Breadcrumbs title={project.name} title1="Projets" />

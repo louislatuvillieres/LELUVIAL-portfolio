@@ -94,7 +94,7 @@ const Index: NextPage = () => {
               animate={{ opacity: 1, y: '0%' }}
               transition={{ duration: 0.75, delay: 3.1 }}
             >
-              Actuellement Développeur Web Freelance,<br/> je souhaiterai devenir Développeur FullStack
+              Actuellement étudiant en Informatique,<br/> je souhaiterai devenir Ingénieur Cognitique
             </motion.div>
             <div className="mr-0 sm:mr-4">
               <motion.div

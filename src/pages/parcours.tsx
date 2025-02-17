@@ -12,10 +12,9 @@ const Parcours: React.FC = () => {
                 'img': '/album_covers/charm.jpg',
                 'text': 'Clairo - Charm'
             },
-            'title': 'Licence 2',
-            'options': 'Informatique',
+            'title': 'Licence 2 Informatique',
             'date': '2025',
-            'lieu': 'Université Paris Saclay',
+            'lieu': 'Université Paris Saclay - Bures-sur-Yvette (91)',
             'description': ''
         },
         {
@@ -25,7 +24,7 @@ const Parcours: React.FC = () => {
             },
             'title': 'Développeur Web Freelance',
             'date': '2024',
-            'lieu': 'Agence Glanum - Avignon',
+            'lieu': 'Agence Glanum - Avignon (84)',
             'description': 'J\'ai intégré l\'équipe de l\'agence Glanum en tant que Développeur Junior polyvalent pour répondre à leurs besoins. J\'ai été responsable dans divers projets, notamment celui de refonte du site WordPress, Une Maison En Provence. Mon rôle m\'a amené à revoir entièrement les requêtes en base de données générées par le thème WordPress, ce qui a permis une optimisation significative du site.'
         },
         {
@@ -36,7 +35,7 @@ const Parcours: React.FC = () => {
             'title': 'BTS Services Informatiques aux Organisations',
             'options': 'Spécialité Solutions Logicielles et Applications Métier, option Mathématiques Approfondies',
             'date': '2023',
-            'lieu': 'Lycée Théodore Aubanel - Avignon',
+            'lieu': 'Lycée Théodore Aubanel - Avignon (84)',
             'description': 'Ce BTS m\'a permis de me mettre en confiance vis-à-vis des matières scientifiques, en devenant majorant à chaque semestre, et de réellement développer ma fibre scientifique pour pratiquer un métier qui me plaît : le métier de Développeur Web.'
         },
         {
@@ -46,7 +45,7 @@ const Parcours: React.FC = () => {
             },
             'title': 'Stagiaire Développement Web',
             'date': 'Février/Mars 2023',
-            'lieu': 'Agence Glanum - Avignon',
+            'lieu': 'Agence Glanum - Avignon (84)',
             'description': 'J\'ai pu travailler sur la réalisation d\'un Proof of Concept (PoC) pour mon projet Waves. Ce projet m\'a permis de découvrir des technologies telles que Laravel, React, ainsi qu\'InertiaJS. J\'ai également acquis des connaissances pratiques en UX/UI et en gestion de projets grâce aux projets professionnels de l\'agence.',
         },
         {
@@ -67,7 +66,7 @@ const Parcours: React.FC = () => {
             'title': 'Baccalauréat Général',
             'date': '2021',
             'options' : 'Spécialités Arts Plastiques, Histoire Géographie Géopolitique et Sciences Politiques, Section Européenne Anglais',
-            'lieu': 'Lycée Albert Camus - Nîmes',
+            'lieu': 'Lycée Albert Camus - Nîmes (30)',
             'description': 'Ce baccalauréat m\'a permis de développer ma fibre artistique et mon esprit critique, pour ensuite bifurquer vers des matières plus scientifiques.'
         }
     ]
