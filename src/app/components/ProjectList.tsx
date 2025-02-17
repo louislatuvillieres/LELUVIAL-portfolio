@@ -1,6 +1,5 @@
 // ProjectList.tsx
 import React from 'react';
-import Separator from './Separator';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';

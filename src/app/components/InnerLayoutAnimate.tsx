@@ -1,12 +1,5 @@
 import React, { Dispatch, ReactNode, SetStateAction, useEffect } from 'react';
-import Head from 'next/head';
-import Header from './Header';
-import Menu from './Menu';
-import Footer from './Footer';
-import { useState } from 'react';
 import { motion, usePresence } from 'framer-motion';
-import AnimatedSVG from './AnimatedSVG';
-import router from 'next/router';
 
 type InnerLayoutAnimateProps = {
   children: ReactNode;

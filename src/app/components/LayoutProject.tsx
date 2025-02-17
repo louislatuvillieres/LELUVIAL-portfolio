@@ -1,33 +1,8 @@
-// pages/projets/index.tsx
-
-import Layout from "@components/Layout";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
-import ProjectList from "@/app/components/ProjectList";
-import { GetServerSideProps, NextPage } from "next";
-import fs from 'fs';
-import path from 'path';
+import { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Script from "next/script";
-
-interface Project {
-    name: string,
-    slug: string,
-    icon: string,
-    thumbnail: string,
-    year: number,
-    public: boolean,
-    keywords: string[],
-    images: string[],
-    link: string,
-    description: string,
-    description1?: string,
-    description2?: string,
-    screenshot1?: (string | number)[];
-    screenshot2?: (string | number)[];
-    videos?: string[],
-    attachment?: string
-}
+import { Project } from "@/types/project";
 
 const LayoutProject: NextPage<{ project: Project, previousProject: Project | null, nextProject: Project | null }> = ({ project }) => {
   return (

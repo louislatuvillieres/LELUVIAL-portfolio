@@ -1,4 +1,3 @@
-import Layout from "@components/Layout";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import ProjectList from "@/app/components/ProjectList";
 import { GetServerSideProps, NextPage } from "next";
@@ -7,13 +6,8 @@ import path from 'path';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    // Define the path to your JSON file
     const projectsFilePath = path.join(process.cwd(), 'src', 'app', 'private', 'projects.json');
-
-    // Read the file content
     const projectsFileContent = await fs.promises.readFile(projectsFilePath, 'utf-8');
-
-    // Parse the JSON content
     const projectsData = JSON.parse(projectsFileContent).projects;
 
     return {

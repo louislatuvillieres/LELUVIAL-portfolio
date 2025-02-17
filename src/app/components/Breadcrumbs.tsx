@@ -1,9 +1,5 @@
-// components/Breadcrumbs.tsx
-
 import { FC } from 'react';
 import Link from 'next/link';
-import { title } from 'process';
-import { motion } from 'framer-motion';
 
 type BreadcrumbProps = {
   title: string; 

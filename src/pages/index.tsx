@@ -1,47 +1,11 @@
 "use client";
-import Layout from "@components/Layout";
-import { useEffect } from "react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
-import AnimatedSVG from "@/app/components/AnimatedSVG";
 import Link from "next/link";
 import Image from "next/image";
 import { SlArrowLeft } from "react-icons/sl";
 import { motion } from "framer-motion";
 
 const Index: NextPage = () => {
-  const router = useRouter();
-  const { token } = router.query;
-
-  const hasToken = typeof token === 'string';
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (typeof token === 'string') {
-        try {
-          const response = await fetch('/api/handleHash', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token }),
-          });
-
-          if (response.ok) {
-            console.log('ok');
-          } else {
-            console.error('auth failed', response.statusText);
-          }
-        } catch (error) {
-          console.error('api error', error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [token]);
-
-
   return (
     <div className="max-h-[100vh] w-screen absolute top-0 left-0 pt-20 overflow-hidden z-50">
       <div className="flex flex-col sm:flex-row items-center sm:pt-0 pt-32 justify-center -translate-y-20 h-svh  mx-auto top-0 container lg:px-16 z-50">
