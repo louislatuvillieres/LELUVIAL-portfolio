@@ -12,8 +12,8 @@ const Parcours: React.FC = () => {
             },
             'title': 'Licence 2 Informatique',
             'date': '2025',
-            'lieu': 'Université Paris Saclay - Bures-sur-Yvette (91)',
-            'description': ''
+            'lieu': 'Université Paris Saclay - Orsay (91)',
+            'description': 'Suite à mon expérience en tant que freelance, je me suis rendu compte que je voulais approfondir mon apprentissage théorique de l\'Informatique. J\'ai donc fait le choix de reprendre les études en licence à Paris Saclay, où je découvre des aspects beaucoup plus théoriques et abstraits de l\'Informatique pour mieux en appréhender la pratique.'
         },
         {
             'vinyl': {

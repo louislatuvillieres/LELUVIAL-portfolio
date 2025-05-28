@@ -58,7 +58,7 @@ const Index: NextPage = () => {
               animate={{ opacity: 1, y: '0%' }}
               transition={{ duration: 0.75, delay: 3.1 }}
             >
-              Actuellement étudiant en Informatique,<br/> je souhaiterai devenir Ingénieur Cognitique
+              Actuellement étudiant en informatique à l&apos;Université Paris-Saclay et Développeur Web Freelance, je cherche à étendre mes compétences en Interaction Humain-Machine et développement FullStack.
             </motion.div>
             <div className="mr-0 sm:mr-4">
               <motion.div
