@@ -1,31 +1,18 @@
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import ProjectList from "@/app/components/ProjectList";
-import { GetServerSideProps, NextPage } from "next";
-import fs from 'fs';
-import path from 'path';
+import { GetStaticProps, NextPage } from "next";
+import projectsData from "@/data/projects.json";
+import { Project } from "@/types/project";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    const projectsFilePath = path.join(process.cwd(), 'src', 'app', 'private', 'projects.json');
-    const projectsFileContent = await fs.promises.readFile(projectsFilePath, 'utf-8');
-    const projectsData = JSON.parse(projectsFileContent).projects;
-
-    return {
-      props: {
-        projects: projectsData,
-      },
-    };
-  } catch (error) {
-    console.error('Error reading projects.json:', error);
-    return {
-      props: {
-        projects: [],
-      },
-    };
-  }
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      projects: projectsData,
+    },
+  };
 };
 
-const IndexProjets: NextPage<{ projects: [] }> = ({ projects }) => {
+const IndexProjets: NextPage<{ projects: Project[] }> = ({ projects }) => {
   return (
     <>
       <Breadcrumbs title="Projets" />
