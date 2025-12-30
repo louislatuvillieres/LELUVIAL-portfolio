@@ -13,6 +13,7 @@ interface Project {
   thumbnail: string;
   keywords: string[];
   images: string[];
+  background?: number;
 }
 
 interface ProjectCardProps {
@@ -31,7 +32,7 @@ const getImageClass = (slug: string, position: "first" | "second") => {
     },
     waves: {
       first:
-        "md:w-48 w-32 bottom-0 left-0 -translate-x-2 translate-y-3 rotate-2",
+        "md:w-48 w-32 bottom-0 left-0 -translate-x-2 translate-y-9 rotate-2",
       second:
         "md:w-36 w-24 top-0 right-0 translate-x-4 -translate-y-3 -rotate-2",
     },
@@ -44,6 +45,11 @@ const getImageClass = (slug: string, position: "first" | "second") => {
     anautiqua: {
       first: "md:w-32 w-24 top-0 left-0 -translate-x-1",
       second: "md:w-32 w-24 bottom-0 right-0 translate-x-2",
+    },
+    meteolab: {
+      first:
+        "md:w-32 w-24 top-0 left-0 -translate-x-1 -translate-y-4 -rotate-6",
+      second: "md:w-32 w-24 bottom-0 right-0 translate-x-2 rotate-6",
     },
   };
 
@@ -60,11 +66,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <motion.div
-      className={`mb-24 w-fit ${isEven ? "mr-auto" : "ml-auto"}`}
+      className={`md:mb-18 mb-24 w-fit ${isEven ? "mr-auto" : "ml-auto"}`}
       variants={parentVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
       custom={index}
     >
       <Link
@@ -73,11 +79,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           isEven ? "text-left" : "text-right"
         }`}
       >
-        <div className="font-erode font-light text-3xl italic">
+        <div className="font-erode font-light text-3xl italic mx-4">
           0{index + 1}
         </div>
 
-        <div className="md:h-[20rem] mt-4 p-6 relative">
+        {project.background && (
+          <Image
+            src={`/img/project_background/background${project.background}.webp`}
+            alt=""
+            width={561}
+            height={537}
+            className="z-0 absolute -mt-12 sm:px-4 md:px-0 max-[480px]:-mt-6 max-[380px]:-mt-2"
+            priority
+          />
+        )}
+
+        <div className="md:h-[20rem] mt-4 p-6 relative z-10">
           {project.images?.[0] && (
             <motion.div
               className="absolute w-full h-full top-0 left-0"
@@ -87,8 +104,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 priority
                 alt={project.name}
                 src={project.images[0]}
-                width={1000}
-                height={1000}
+                width={250}
+                height={250}
                 className={`absolute ${getImageClass(project.slug, "first")}`}
               />
             </motion.div>
@@ -98,8 +115,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             priority
             alt={project.name}
             src={project.thumbnail}
-            width={600}
-            height={400}
+            width={408}
+            height={272}
             className="h-full w-fit"
           />
 
@@ -112,22 +129,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 priority
                 alt={project.name}
                 src={project.images[1]}
-                width={1000}
-                height={1000}
+                width={250}
+                height={250}
                 className={`absolute ${getImageClass(project.slug, "second")}`}
               />
             </motion.div>
           )}
         </div>
 
-        <div className="mx-1 mt-6">
+        <div className="mx-1 mt-6 z-10">
           <div className="font-plex font-medium text-2xl -mt-2">
             {project.name}
           </div>
         </div>
 
         <div
-          className={`flex font-erode font-light text-lg ${
+          className={`flex font-erode font-light text-lg z-10 ${
             !isEven ? "justify-end" : ""
           }`}
         >

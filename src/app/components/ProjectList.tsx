@@ -11,6 +11,7 @@ interface Project {
   thumbnail: string;
   keywords: string[];
   images: string[];
+  background?: number;
 }
 
 interface ProjectListProps {
@@ -52,7 +53,7 @@ const childrenImg = {
 
 const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   return (
-    <>
+    <div className="px-4">
       {projects.map((project, index) => (
         <ProjectCard
           key={project.slug}
@@ -62,7 +63,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
           imageVariants={childrenImg}
         />
       ))}
-    </>
+    </div>
   );
 };
 
