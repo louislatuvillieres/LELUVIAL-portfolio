@@ -1,17 +1,27 @@
-import React, { Dispatch, ReactNode, SetStateAction, useEffect } from 'react';
-import { useState } from 'react';
-import { motion, useAnimate, useMotionValueEvent, useScroll } from "framer-motion";
-import { useRouter } from 'next/router';
-import { Lenis, useLenis } from '@studio-freight/react-lenis';
+import React, { Dispatch, ReactNode, SetStateAction, useEffect } from "react";
+import { useState } from "react";
+import {
+  motion,
+  useAnimate,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
+import { useRouter } from "next/router";
+import { Lenis, useLenis } from "@studio-freight/react-lenis";
 
 interface AnimatedSVGProps {
-    animateToEnter: boolean,
-    animateToExit: boolean,
-    setAnimateToEnter: Dispatch<SetStateAction<boolean>>,
-    setAnimateToExit: Dispatch<SetStateAction<boolean>>
-};
+  animateToEnter: boolean;
+  animateToExit: boolean;
+  setAnimateToEnter: Dispatch<SetStateAction<boolean>>;
+  setAnimateToExit: Dispatch<SetStateAction<boolean>>;
+}
 
-const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit, setAnimateToEnter, setAnimateToExit}) => {
+const AnimatedSVG: React.FC<AnimatedSVGProps> = ({
+  animateToEnter,
+  animateToExit,
+  setAnimateToEnter,
+  setAnimateToExit,
+}) => {
   const [isWideScreen, setIsWideScreen] = useState(false);
   const lenis = useLenis();
 
@@ -24,34 +34,34 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
     };
 
     // Attach event listener for window resize
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Initial check on component mount
     handleResize();
 
     // Cleanup the event listener on component unmount
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    if(animateToEnter) {
-        setPath(paths[0]);
-        reverseAnimation();
-        setAnimateToEnter(false);
+    if (animateToEnter) {
+      setPath(paths[0]);
+      reverseAnimation();
+      setAnimateToEnter(false);
     }
   }, [animateToEnter]);
   useEffect(() => {
-    if(animateToExit) {
-        lenis?.scrollTo(0);
-        startAnimation();
-        setAnimateToExit(false);
+    if (animateToExit) {
+      lenis?.scrollTo(0);
+      startAnimation();
+      setAnimateToExit(false);
     }
   }, [animateToExit]);
 
   // Determine the appropriate classes based on screen size
   const paperClasses = isWideScreen
-    ? 'h-[100vw] w-[100vw] overflow-hidden'
-    : 'h-[100vh] w-[100vh] overflow-hidden';
+    ? "h-[100vw] w-[100vw] overflow-hidden"
+    : "h-[100vh] w-[100vh] overflow-hidden";
 
   const paths = [
     "M0 451L0 500 500 500 500 436 378 455 201 433 110 445 75 441z",
@@ -65,10 +75,10 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
     "M0 74L0 500 500 500 500 60 378 78 201 56 110 68 75 64z",
     //"M0 27L0 500 500 500 500 42 405 35 314 53 205 36 78 56z",
     "M0 18L0 500 500 500 500 13 403 20 328 9 158 24 77 7z",
-    "M0 0L0 500 500 500 500 0z"
+    "M0 0L0 500 500 500 500 0z",
   ];
 
-  const [path, setPath] = useState('M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z');
+  const [path, setPath] = useState("M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z");
 
   const startAnimation = () => {
     let currentIndex = 0;
@@ -86,9 +96,9 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
   };
 
   const reverseAnimation = () => {
-    const basePath = 'M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z';
+    const basePath = "M0 0L0 0 0 0 0 0 0 0 0 0 0 0 0 0z";
 
-    let currentIndex = paths.length-1;
+    let currentIndex = paths.length - 1;
 
     const applyNextPath = () => {
       if (currentIndex >= 0) {
@@ -96,8 +106,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
         currentIndex--;
 
         setTimeout(applyNextPath, 65);
-      }
-      else {
+      } else {
         setPath(basePath);
       }
     };
@@ -106,28 +115,36 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({animateToEnter, animateToExit,
   };
 
   return (
-    <div  className='h-[100vh] w-[100vw] fixed left-0 overflow-hidden pointer-events-none z-[60]'>
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            x="0"
-            y="0"
-            enableBackground="new 0 0 500 500"
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlSpace="preserve"
-            className={paperClasses}
-        >
-            <defs>
-            
-            <pattern id="img1" patternUnits="userSpaceOnUse" width="500" height="500">
-                <image href="/paper_texture.jpg" x="0" y="0" width="500" height="500" />
-            </pattern>
-            </defs>
-            <style type="text/css">
-            {".st0{fill:url(#img1)}"}
-            </style>
-            <path d={path} className="st0"></path>
-        </svg>
+    <div className="h-[100vh] w-[100vw] fixed left-0 overflow-hidden pointer-events-none z-[60]">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        x="0"
+        y="0"
+        enableBackground="new 0 0 500 500"
+        version="1.1"
+        viewBox="0 0 500 500"
+        xmlSpace="preserve"
+        className={paperClasses}
+      >
+        <defs>
+          <pattern
+            id="img1"
+            patternUnits="userSpaceOnUse"
+            width="500"
+            height="500"
+          >
+            <image
+              href="/paper_texture.jpg"
+              x="0"
+              y="0"
+              width="500"
+              height="500"
+            />
+          </pattern>
+        </defs>
+        <style type="text/css">{".st0{fill:url(#img1)}"}</style>
+        <path d={path} className="st0"></path>
+      </svg>
     </div>
   );
 };

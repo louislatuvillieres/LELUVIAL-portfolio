@@ -1,87 +1,127 @@
+// src/app/pages/index.tsx
 "use client";
-import { NextPage } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import { SlArrowLeft } from "react-icons/sl";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { floatingImages } from "@/data/floatingImages";
+import NameImage from "@/app/components/NameImage";
+import ScrapTitle from "@/app/components/ScrapTitle";
 
-const Index: NextPage = () => {
+const Index = () => {
   return (
-    <div className="max-h-[100vh] w-screen absolute top-0 left-0 pt-20 overflow-hidden z-50">
-      <div className="flex flex-col sm:flex-row items-center sm:pt-0 pt-32 justify-center -translate-y-20 h-svh  mx-auto top-0 container lg:px-16 z-50">
-        <div className="indexImgContainer w-[20rem] md:mt-24 -top-32 -left-6 sm:top-0 lg:w-[35rem] xl:w-1/2 2xl:w-[35rem] h-full max-h-[60rem] sm:h-[45rem] lg:h-[55rem] sm:-left-12 flex items-center justify-center relative">
-          <Image 
-          src="/home_illu/1.jpg"
-          alt="Moon Illustration"
-          width={302}
-          height={294}
-          className="absolute top-0 translate-y-36 right-0 sm:-right-20 lg:right-0 -rotate-2 appearFromTop z-50 w-[125px] sm:w-[175px] md:w-[225px] lg:w-[250px] xl:w-[302px]"
+    <div
+      className="flex flex-col md:flex-row w-full"
+      style={{ height: "calc(100vh - 90px)" }}
+    >
+      {/* SECTION IMAGES - 60% largeur desktop, centre du div comme référence */}
+      <div className="relative w-full md:w-[60%] h-3/5 md:h-full flex justify-center items-center overflow-x-hidden md:overflow-x-visible">
+        {/* Image principale - statique ou animée selon votre préférence */}
+        <div className="w-[40rem] min-w-[40rem] max-w-[40rem] h-[652px] flex items-center justify-center xl:scale-100 shrink-0 lg:scale-[80%] md:scale-75 scale-[60%] 2xl:scale-105 2xl:translate-y-4 2xl:-translate-x-12">
+          <Image
+            src="/me2.png"
+            alt="Picture of me"
+            className="absolute w-[40rem] min-w-[40rem] max-w-[40rem] z-10"
+            width={1020}
+            height={1038}
           />
-          <Image 
-          src="/me.png"
-          alt="Picture of me"
-          width={475}
-          height={688}
-          className="absolute left-0 translate-x-[20%] translate-y-[27%] top-0 appearFromLeft z-50 w-[250px] sm:w-[425px] xl:w-[475px]"
-          />
-          <div className="-bottom-48 sm:bottom-0 w-[100px] sm:w-[175px] lg:w-[200px] xl:w-[250px] absolute">
-            <Image 
-            src="/home_illu/2.png"
-            alt="Double Star Illustration"
-            width={250}
-            height={250}
-            className="absolute -translate-y-96 lg:left-0 sm:left-12 -left-4 -translate-x-[65%] sm:bottom-0 rotate-6 appearFromBottom z-50 w-[100px] sm:w-[175px] lg:w-[200px] xl:w-[250px]"
+
+          {/* Images flottantes avec animations stop-motion */}
+          {floatingImages.map((img, i) => (
+            <Image
+              key={i}
+              src={img.src}
+              alt=""
+              width={img.size}
+              height={img.size}
+              className={`absolute pointer-events-none select-none scrap-animate animate-${img.animation}`}
+              style={{
+                transform: `translate(${img.x}px, ${img.y}px) rotate(${img.rotate}deg)`,
+                zIndex: img.z,
+                animationDelay: `${img.delay}s`,
+              }}
             />
-          </div>
+          ))}
         </div>
-        <div className="sm:w-1/2 w-full h-full sm:h-full relative z-[60]">
-          <div className="absolute w-full xl:pr-8 bottom-0 mb-12 sm:mb-64 md:mb-56 text-center sm:text-right">
-            <motion.span 
-              className="font-erode text-3xl sm:text-5xl xl:text-6xl italic mr-0 sm:mr-4 xl:mr-12 block"
-              initial={{ opacity: 0, y: '100%' }}
-              animate={{ opacity: 1, y: '0%' }}
-              transition={{ duration: 0.75, delay: 2.7 }}
+      </div>
+
+      {/* SECTION TEXTE - 40% largeur desktop */}
+      <div className="w-full md:w-[40%] h-2/5 md:h-full flex flex-col justify-center md:items-end text-center md:text-right md:space-y-6 md:pr-1">
+        <div className="w-auto -mt-48 md:mt-0 self-center sm:self-start md:self-auto ml-0 sm:ml-16 md:ml-0">
+          <ScrapTitle text="Bienvenue !" />
+        </div>
+        <div className="font-plex max-[280px]:text-2xl text-3xl lg:text-4xl ">
+          <span className="inline-flex flex-wrap md:justify-end justify-center items-baseline gap-x-2 w-full font-medium px-2 md:px-0">
+            <span className="font-normal text-inherit w-auto md:w-full xl:w-auto">
+              Je suis
+            </span>
+
+            <NameImage
+              src="/img/louis.webp"
+              alt="Louis"
+              width={303}
+              height={82}
+              maxHeight={87}
+            />
+            <NameImage
+              src="/img/latu.webp"
+              alt="Latu"
+              width={247}
+              height={78}
+              maxHeight={87}
+            />
+            <NameImage
+              src="/img/villieres.webp"
+              alt="Villières"
+              width={556}
+              height={87}
+              maxHeight={87}
+            />
+
+            <span className="font-normal text-inherit -ml-2">,</span>
+          </span>
+        </div>
+
+        <p className="font-erode text-xl/5 pt-6 pb-2 md:pb-0 px-6 sm:px-0 md:text-xl md:pl-2 lg:pl-0 font-light max-w-xl mx-auto md:mx-0 md:ml-auto">
+          Actuellement élève ingénieur à l&apos;ENSC - Bordeaux INP, je me forme
+          en Interaction Humain-Machine, Sciences Cognitives et développement
+          FullStack.
+        </p>
+
+        <div className="space-y-2 pt-4">
+          <div>
+            <Link
+              href="/projets"
+              className="font-plex font-semibold text-indigo-950 text-xl inline-flex items-center gap-1 hover:-translate-x-2 transition-all duration-300"
             >
-              Bienvenue !
-            </motion.span>
-            <motion.div 
-              className="font-plex text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] w-full mt-1 sm:mt-6 xl:mt-12 mb-5 text-center sm:text-right"
-              initial={{ opacity: 0, y: '100%' }}
-              animate={{ opacity: 1, y: '0%' }}
-              transition={{ duration: 0.75, delay: 2.9 }}
+              Mes projets
+              <Image
+                src="/img/arrow-up.webp"
+                alt=""
+                width={20}
+                height={20}
+                className="-mt-2"
+              />
+            </Link>
+          </div>
+
+          <div>
+            <Link
+              href="/parcours"
+              className="font-plex font-semibold text-indigo-950 text-xl inline-flex items-center gap-1 hover:-translate-x-2 transition-all duration-300"
             >
-              Je suis <b className="font-medium text-cyan-800 xl:inline block">Louis Latu-Villières<span className="text-black font-normal">,</span></b>
-            </motion.div>
-            <motion.div 
-              className="font-erode sm:text-lg md:text-xl xl:text-2xl font-light mb-6 sm:mb-12 text-center sm:text-right"
-              initial={{ opacity: 0, y: '100%' }}
-              animate={{ opacity: 1, y: '0%' }}
-              transition={{ duration: 0.75, delay: 3.1 }}
-            >
-              Actuellement étudiant en informatique à l&apos;Université Paris-Saclay et Développeur Web Freelance, je cherche à étendre mes compétences en Interaction Humain-Machine et développement FullStack.
-            </motion.div>
-            <div className="mr-0 sm:mr-4">
-              <motion.div
-                initial={{ opacity: 0, x: '20%' }}
-                animate={{ opacity: 1, x: '0%' }}
-                transition={{ duration: 1, delay: 3.8 }}
-              >
-                <Link href='/projets' className="font-plex font-medium text-xl hover:mr-2 duration-500 transition-all">Mes projets <SlArrowLeft className="inline w-3 mb-1"/> </Link>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: '20%' }}
-                animate={{ opacity: 1, x: '0%' }}
-                transition={{ duration: 1, delay: 3.9 }}
-              >
-                <Link href='/parcours' className="font-plex font-medium text-xl hover:mr-2 duration-500 transition-all">Mon parcours  <SlArrowLeft className="inline w-3 mb-1"/></Link>
-              </motion.div>
-            </div>
+              Mon parcours
+              <Image
+                src="/img/arrow-up.webp"
+                alt=""
+                width={20}
+                height={20}
+                className="-mt-2"
+              />
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Index;
-
