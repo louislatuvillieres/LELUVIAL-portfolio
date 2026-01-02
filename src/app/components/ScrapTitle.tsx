@@ -150,6 +150,8 @@ const ScrapTitle: React.FC<ScrapTitleProps> = ({
       {/* Texte HTML par lettre avec randomisation */}
       <span className="absolute inset-0 z-10 flex items-center justify-center text-5xl font-pangolin text-white -rotate-3 top-3 text-center">
         {text.split("").map((char, i) => {
+          const safeChar = char === " " ? "\u00A0" : char;
+
           const dx = (seededRandom(seed, i * 3) - 0.5) * 3; // décalage X ±2px pour effet subtil
           const dy = (seededRandom(seed, i * 5) - 0.5) * 8; // décalage Y ±1.5px
           const rotate = (seededRandom(seed, i * 7) - 0.5) * 5; // rotation ±2.5deg
@@ -161,7 +163,7 @@ const ScrapTitle: React.FC<ScrapTitleProps> = ({
                 transform: `translate(${dx}px, ${dy}px) rotate(${rotate}deg)`,
               }}
             >
-              {char}
+              {safeChar}
             </span>
           );
         })}
