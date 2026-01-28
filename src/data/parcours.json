@@ -8,7 +8,7 @@
     "options": "Sciences Cognitives appliquées à l'Informatique",
     "date": "En cours",
     "lieu": "ENSC - Bordeaux INP (33)",
-    "description": "J’intègre l’École Nationale Supérieure de Cognitique avec la volonté de placer l’humain au centre de mes projets techniques. Cette formation me permet d’approfondir les enjeux liés à l’Interaction Humain-Machine, à l’UX et à la cognition, afin de concevoir des expériences numériques à la fois fonctionnelles, sensibles et ancrées dans les usages réels.",
+    "description": "Dans la continuité de ma volonté de centrer mes projets techniques sur ses utilisateurs, j’intègre l’École Nationale Supérieure de Cognitique. Cette formation me permet d’approfondir les enjeux liés à l’Interaction Humain-Machine, à l’UX et aux Sciences Cognitives, afin de concevoir des expériences numériques à la fois fonctionnelles et ancrées dans les usages.",
     "stickers": [
       {
         "img": "/img/parcours_stickers/sticker1.webp",
@@ -25,7 +25,7 @@
     "title": "Licence 2 Informatique",
     "date": "2025",
     "lieu": "Université Paris-Saclay - Orsay (91)",
-    "description": "Après une première expérience professionnelle en tant que développeur web freelance, j’ai ressenti le besoin de consolider mes bases théoriques en informatique. Cette année à Paris-Saclay m’a permis d’aborder une informatique plus abstraite et rigoureuse, mais surtout de découvrir l’Interaction Humain-Machine. Ce cours a été un véritable point de bascule : j’y ai compris que je souhaitais concevoir des systèmes techniques à partir des usages, des perceptions et des besoins humains.",
+    "description": "Après une première expérience professionnelle en tant que développeur web freelance, j’ai ressenti le besoin d'approfondir mon apprentissage théorique en informatique. Cette année à Paris-Saclay m’a permis d’aborder une informatique plus abstraite et rigoureuse, mais surtout de découvrir l’Interaction Humain-Machine. Ce cours a été un véritable point de bascule : j’y ai compris que je souhaitais concevoir des systèmes techniques à partir des usages, des perceptions et des besoins humains.",
     "stickers": [
       {
         "img": "/img/parcours_stickers/sticker2.webp",
@@ -42,7 +42,7 @@
     "title": "Développeur Web Freelance",
     "date": "2024",
     "lieu": "Agence Glanum - Avignon (84)",
-    "description": "Au sein de l’agence Glanum, j’ai évolué comme développeur web junior polyvalent sur des projets variés. J’ai notamment travaillé sur la refonte complète du site WordPress *Une Maison en Provence*, en repensant les requêtes en base de données générées par le thème. Cette approche m’a permis d’améliorer significativement les performances du site, tout en consolidant ma rigueur technique et mon sens de l’optimisation.",
+    "description": "J'ai intégré l'équipe de l'agence Glanum en tant que Développeur Junior polyvalent pour répondre à leurs besoins. J'ai été responsable dans divers projets, notamment celui de refonte du site WordPress, Une Maison En Provence. Mon rôle m'a amené à revoir entièrement les requêtes en base de données générées par le thème WordPress, ce qui a permis une optimisation significative du site.",
     "stickers": [
       {
         "img": "/img/parcours_stickers/sticker3.webp",
@@ -60,7 +60,7 @@
     "options": "Spécialité SLAM - option Mathématiques Approfondies",
     "date": "2023",
     "lieu": "Lycée Théodore Aubanel - Avignon (84)",
-    "description": "Ce BTS marque un tournant dans mon parcours. Il m’a permis de prendre confiance en mes capacités scientifiques, en devenant majorant à chaque semestre, et de structurer ma pensée logique. J’y ai affirmé mon envie de faire du développement web mon cœur de métier, en alliant exigence technique et plaisir de créer.",
+    "description": "Ce BTS marque un tournant dans mon parcours. Il m’a permis de prendre confiance en mes capacités scientifiques, en devenant majorant à chaque semestre, et de structurer ma pensée logique. J’y ai affirmé mon envie de faire du développement web mon cœur de métier.",
     "stickers": [
       {
         "img": "/img/parcours_stickers/sticker4.webp",
@@ -77,7 +77,7 @@
     "title": "Stagiaire Développement Web",
     "date": "Février - Mars 2023",
     "lieu": "Agence Glanum - Avignon (84)",
-    "description": "Lors de ce stage, j’ai participé à la réalisation d’un Proof of Concept pour le projet *Waves*. J’y ai découvert des technologies comme Laravel, React et InertiaJS, tout en développant une première sensibilité aux problématiques UX/UI et à la gestion de projet. Cette expérience a renforcé mon intérêt pour des interfaces pensées comme des systèmes vivants, au service de l’utilisateur.",
+    "description": "Lors de ce stage, j’ai réalisé un Proof of Concept pour mon projet Waves. J’y ai découvert des technologies comme Laravel, React et InertiaJS, tout en développant une première sensibilité aux problématiques UX/UI et à la gestion de projet.",
     "stickers": [
       {
         "img": "/img/parcours_stickers/sticker5.webp",
@@ -94,7 +94,7 @@
     "title": "Stagiaire Développement Web",
     "date": "Juin 2022",
     "lieu": "VivantMag - Avignon (84)",
-    "description": "Au sein de l’association VivantMag, dédiée à la médiation culturelle, j’ai assuré la mise à jour et la sécurisation du site WordPress, resté inchangé depuis plusieurs années. Ce projet m’a confronté à des enjeux concrets de pérennité, d’accessibilité et de continuité de service.",
+    "description": "VivantMag est une association dédiée à la médiation culturelle. J'ai été chargé de mettre à jour le site Wordpress de VivantMag, resté inchangé depuis 2019, en assurant la sécurité et la continuité des services.",
     "stickers": [
       {
         "img": "/img/parcours_stickers/sticker6.webp",

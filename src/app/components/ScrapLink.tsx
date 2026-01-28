@@ -71,7 +71,7 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
   return (
     <Link
       href={href}
-      className={`relative inline-block group ${className}`}
+      className={`relative hover:-rotate-6 inline-block group ${className}`}
       style={{ width, height }}
     >
       {/* SVG papier */}
@@ -152,7 +152,7 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
       </svg>
 
       {/* Contenu */}
-      <span className="relative z-10 h-full px-4 flex items-center gap-2">
+      <span className="relative z-10 top-1 h-full px-4 flex items-center gap-2">
         {/* Texte scrap randomisé */}
         <span className="font-pangolin text-black text-base whitespace-nowrap">
           {text.split("").map((char, i) => {
