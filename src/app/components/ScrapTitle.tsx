@@ -11,6 +11,7 @@ interface ScrapTitleProps {
   height?: number;
   layer2Rotation?: number;
   seed?: string; // pour randomisation prévisible
+  textSize?: string;
 }
 
 const ScrapTitle: React.FC<ScrapTitleProps> = ({
@@ -24,6 +25,8 @@ const ScrapTitle: React.FC<ScrapTitleProps> = ({
   height = 100,
   layer2Rotation = -3,
   seed = "default-seed",
+  textSize = "5xl"
+
 }) => {
   const width = text.length * glyphWidth + padding * 2;
 
@@ -148,7 +151,7 @@ const ScrapTitle: React.FC<ScrapTitleProps> = ({
       </svg>
 
       {/* Texte HTML par lettre avec randomisation */}
-      <span className="absolute inset-0 z-10 flex items-center justify-center text-5xl font-pangolin text-white -rotate-3 top-3 text-center">
+      <span className={`absolute inset-0 z-10 flex items-center justify-center text-${textSize} font-pangolin text-white -rotate-3 top-3 text-center`}>
         {text.split("").map((char, i) => {
           const safeChar = char === " " ? "\u00A0" : char;
 

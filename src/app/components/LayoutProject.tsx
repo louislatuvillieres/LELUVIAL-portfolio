@@ -2,224 +2,200 @@ import Breadcrumbs from "@/app/components/Breadcrumbs";
 import { NextPage } from "next";
 import Image from "next/image";
 import Script from "next/script";
-import { Project } from "@/types/project";
-
-// Composant pour les tags de technologie
-const TechStack = ({ keywords }: { keywords: string[] }) => (
-  <div className="flex justify-center gap-6 h-8">
-    {keywords.map((keyword, index) => (
-      <div key={index} className="group relative">
-        <Image
-          priority
-          className="h-8 w-auto"
-          width={600}
-          height={600}
-          alt={keyword}
-          src={`/skills/${keyword.toLowerCase().replace(/ /g, "-")}.png`}
-        />
-        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full whitespace-nowrap font-plex font-light opacity-0 group-hover:opacity-100 transition-opacity">
-          {keyword}
-        </span>
-      </div>
-    ))}
-  </div>
-);
-
-// Composant pour les liens externes
-const ProjectLinks = ({
-  link,
-  attachment,
-}: {
-  link?: string;
-  attachment?: string;
-}) => (
-  <div className="text-xl font-erode text-center mt-8">
-    {link ? (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline hover:opacity-70 transition-opacity"
-      >
-        Accéder au site
-      </a>
-    ) : (
-      <span className="text-gray-500">Projet non encore remis en ligne</span>
-    )}
-    {attachment && (
-      <a
-        href={attachment}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline hover:opacity-70 transition-opacity ml-6"
-      >
-        Dossier de presse
-      </a>
-    )}
-  </div>
-);
-
-// Composant pour les vidéos avant/après
-const VideoComparison = ({ videos }: { videos: string[] }) => {
-  if (!videos?.[0] || !videos?.[1]) return null;
-
-  return (
-    <div className="w-full grid md:grid-cols-2 gap-8 mt-12">
-      <div>
-        <p className="font-erode text-xl italic mb-2">Avant :</p>
-        <iframe
-          className="w-full aspect-video rounded"
-          src={videos[0]}
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-          title="Avant optimisation"
-        />
-      </div>
-      <div>
-        <p className="font-erode text-xl italic mb-2">Après :</p>
-        <iframe
-          className="w-full aspect-video rounded"
-          frameBorder="0"
-          src={videos[1]}
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-          title="Après optimisation"
-        />
-      </div>
-    </div>
-  );
-};
-
-// Composant pour section texte + image
-const ContentSection = ({
-  description,
-  screenshot,
-  imagePosition = "right",
-  projectName,
-}: {
-  description?: string;
-  screenshot?: unknown;
-  imagePosition?: "left" | "right";
-  projectName: string;
-}) => {
-  if (!description && !screenshot) return null;
-
-  // Vérification de type pour screenshot
-  const isValidScreenshot =
-    Array.isArray(screenshot) &&
-    screenshot.length === 3 &&
-    typeof screenshot[0] === "string" &&
-    typeof screenshot[1] === "number" &&
-    typeof screenshot[2] === "number";
-
-  const hasImage = isValidScreenshot;
-
-  return (
-    <div
-      className={`grid ${
-        hasImage ? "md:grid-cols-2" : "grid-cols-1"
-      } gap-12 items-start my-16`}
-    >
-      {/* Image à gauche */}
-      {hasImage && imagePosition === "left" && (
-        <div className="flex items-start justify-center">
-          <Image
-            priority
-            quality={100}
-            className="w-full max-w-md h-auto rounded shadow-lg"
-            src={screenshot[0]}
-            alt={`Screenshot ${projectName}`}
-            width={screenshot[1]}
-            height={screenshot[2]}
-          />
-        </div>
-      )}
-
-      {/* Texte */}
-      {description && (
-        <div className="flex items-center">
-          <p className="font-plex text-lg leading-relaxed text-justify">
-            {description}
-          </p>
-        </div>
-      )}
-
-      {/* Image à droite */}
-      {hasImage && imagePosition === "right" && (
-        <div className="flex items-start justify-center">
-          <Image
-            priority
-            quality={100}
-            className="w-full max-w-md h-auto rounded shadow-lg"
-            src={screenshot[0]}
-            alt={`Screenshot ${projectName}`}
-            width={screenshot[1]}
-            height={screenshot[2]}
-          />
-        </div>
-      )}
-    </div>
-  );
-};
+import { Project } from "@/utils/projectUtils";
+import { motion } from "framer-motion";
+import { seededRotation } from "@/utils/seededRotation";
+import TechStack from "./TechStack";
+import ProjectLinks from "./ProjectLinks";
+import VideoComparison from "./VideoComparison";
+import ContentSection from "./ContentSection";
 
 const LayoutProject: NextPage<{
   project: Project;
   previousProject: Project | null;
   nextProject: Project | null;
 }> = ({ project }) => {
+  const seed = `${project.slug}-${project.year}`;
+
+  // Configuration des sections avec leurs propriétés
+  const sections = [
+    {
+      description: project.description1,
+      screenshot: project.screenshot1,
+      imagePosition: "right" as const,
+      tapeImage: "/img/tape/tape-left.webp",
+      tapeClass: "absolute top-4 -left-6 z-20 -rotate-45",
+      tapeWidth: 85,
+      tapeHeight: 30,
+      index: 1,
+    },
+    {
+      description: project.description2,
+      screenshot: project.screenshot2,
+      imagePosition: "left" as const,
+      tapeImage: "/img/tape/tape-right.webp",
+      tapeClass: "absolute top-8 -right-8 z-20 rotate-45",
+      tapeWidth: 100,
+      tapeHeight: 30,
+      index: 2,
+    },
+    {
+      description: project.description3,
+      screenshot: project.screenshot3,
+      imagePosition: "right" as const,
+      tapeImage: "/img/tape/tape-corner.webp",
+      tapeClass: "absolute -top-2 -left-2 z-20",
+      tapeWidth: 134,
+      tapeHeight: 41,
+      index: 3,
+    },
+  ];
+
   return (
     <>
       <Breadcrumbs title={project.name} title1="Projets" />
 
-      <div className="px-6 py-8 max-w-7xl mx-auto">
-        {/* En-tête du projet */}
-        <div className="grid md:grid-cols-2 gap-12 mb-12">
-          {/* Thumbnail */}
-          <div className="flex items-center">
+      <div>
+        {/* HEADER */}
+        <motion.section
+          className="relative px-6 pb-6 pt-2 overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <Image
-              alt={`Aperçu de ${project.name}`}
+              alt={`${project.name} Logo`}
               src={project.thumbnail}
               width={600}
               height={400}
               className="w-full h-auto"
+              priority
             />
+
+            <motion.div
+              className="space-y-10"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, type: "spring" }}
+            >
+              <TechStack keywords={project.keywords} seed={seed} />
+              <ProjectLinks
+                link={project.link}
+                attachment={project.attachment}
+                projectName={project.name}
+                projectSlug={project.slug}
+              />
+            </motion.div>
           </div>
+        </motion.section>
 
-          {/* Infos du projet */}
-          <div className="flex flex-col justify-center space-y-8">
-            <TechStack keywords={project.keywords} />
-            <ProjectLinks link={project.link} attachment={project.attachment} />
+        {/* MAIN DESCRIPTION */}
+        <section className="px-6 py-16 max-w-4xl mx-auto">
+          <div className="relative">
+            <Image
+              src="/img/tape/tape-top.webp"
+              alt=""
+              width={125}
+              height={39}
+              className="absolute -top-2 left-1/2 -translate-x-1/2 z-20"
+            />
+
+            <div
+              className="relative bg-white p-10 shadow-xl"
+              style={{
+                transform: `rotate(${seededRotation(`${seed}-desc`, -1, 1)}deg)`,
+              }}
+            >
+              <p className="font-plex text-xl leading-relaxed">
+                {project.description}
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* Description principale */}
-        <p className="font-plex text-lg leading-relaxed text-justify mb-8">
-          {project.description}
-        </p>
+        {/* VIDEOS */}
+        <VideoComparison videos={project.videos || []} seed={seed} />
 
-        {/* Vidéos avant/après */}
-        <VideoComparison videos={project.videos || []} />
+        {/* CONTENT SECTIONS */}
+        {sections.map((section) => {
+          // Ne rien afficher si pas de description
+          if (!section.description) return null;
 
-        {/* Section 1 */}
-        <ContentSection
-          description={project.description1}
-          screenshot={project.screenshot1}
-          imagePosition="right"
-          projectName={project.name}
-        />
+          const hasScreenshot = section.screenshot !== undefined;
 
-        {/* Section 2 */}
-        <ContentSection
-          description={project.description2}
-          screenshot={project.screenshot2}
-          imagePosition="left"
-          projectName={project.name}
-        />
+          return (
+            <section
+              key={section.index}
+              className="px-6 my-20 max-w-7xl mx-auto"
+            >
+              <div
+                className={`relative ${
+                  hasScreenshot
+                    ? "grid md:grid-cols-2 gap-16 items-center"
+                    : ""
+                }`}
+              >
+                {/* Decorative tape */}
+                <Image
+                  src={section.tapeImage}
+                  alt=""
+                  width={section.tapeWidth}
+                  height={section.tapeHeight}
+                  className={section.tapeClass}
+                />
+
+                {/* IMAGE - Affichée en premier sur mobile si à gauche */}
+                {hasScreenshot && section.imagePosition === "left" && (
+                  <ContentSection
+                    screenshot={section.screenshot}
+                    imagePosition="left"
+                    projectName={project.name}
+                    sectionIndex={section.index}
+                  />
+                )}
+
+                {/* TEXT */}
+                <motion.div
+                  className={`relative bg-white p-8 shadow-xl ${
+                    hasScreenshot
+                      ? section.imagePosition === "left"
+                        ? "order-1 md:order-2"
+                        : "order-1 md:order-1"
+                      : ""
+                  }`}
+                  style={{
+                    transform: `rotate(${seededRotation(
+                      `${seed}-note${section.index}`,
+                      -1,
+                      1
+                    )}deg)`,
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="font-plex text-lg leading-relaxed">
+                    {section.description}
+                  </p>
+                </motion.div>
+
+                {/* IMAGE - Affichée en second sur mobile si à droite */}
+                {hasScreenshot && section.imagePosition === "right" && (
+                  <ContentSection
+                    screenshot={section.screenshot}
+                    imagePosition="right"
+                    projectName={project.name}
+                    sectionIndex={section.index}
+                  />
+                )}
+              </div>
+            </section>
+          );
+        })}
       </div>
 
-      {/* Script Vimeo si nécessaire */}
-      {project.videos && (
-        <Script src="https://player.vimeo.com/api/player.js" />
-      )}
+      {project.videos && <Script src="https://player.vimeo.com/api/player.js" />}
     </>
   );
 };

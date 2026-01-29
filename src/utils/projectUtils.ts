@@ -1,6 +1,8 @@
 // utils/projectUtils.ts
 import projectsData from "@/data/projects.json";
 
+export type Screenshot = [string, number, number];
+
 export interface Project {
   name: string;
   slug: string;
@@ -9,20 +11,31 @@ export interface Project {
   thumbnail: string;
   year: number;
   public: boolean;
+
   keywords: string[];
   images: string[];
+
   link?: string;
+  attachment?: string;
+
+  videos?: string[];
+
   description: string;
   description1?: string;
   description2?: string;
   description3?: string;
+
+  screenshot1?: Screenshot;
+  screenshot2?: Screenshot;
+  screenshot3?: Screenshot;
 }
 
 /**
  * Récupère un projet par son slug
  */
 export const getProjectBySlug = (slug: string): Project | undefined => {
-  return projectsData.find((project: Project) => project.slug === slug);
+  const project = projectsData.find((p: any) => p.slug === slug);
+  return project as Project | undefined;
 };
 
 /**

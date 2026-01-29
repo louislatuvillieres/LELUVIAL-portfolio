@@ -2,7 +2,7 @@ import Breadcrumbs from "@/app/components/Breadcrumbs";
 import ProjectList from "@/app/components/ProjectList";
 import { GetStaticProps, NextPage } from "next";
 import projectsData from "@/data/projects.json";
-import { Project } from "@/types/project";
+import { Project } from "@/utils/projectUtils";
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

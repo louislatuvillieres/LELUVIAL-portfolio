@@ -18,15 +18,15 @@ const Parcours: React.FC = () => {
   return (
     <>
       <Breadcrumbs title="Parcours" />
-      <div className="px-6 py-2 w-full h-full overflow-x-hidden md:overflow-x-visible">
-        {evenements.map((evenement, index) => (
-          <ParcoursCard
-            key={`${evenement.date}-${evenement.title}`}
-            {...evenement}
-            index={index}
-          />
-        ))}
-      </div>
+        <div className="px-6 py-2 w-full h-full overflow-x-hidden md:overflow-x-visible">
+          {evenements.map((evenement, index) => (
+            <ParcoursCard
+              key={`${evenement.date}-${evenement.title}`}
+              {...evenement}
+              index={index}
+            />
+          ))}
+        </div>
     </>
   );
 };

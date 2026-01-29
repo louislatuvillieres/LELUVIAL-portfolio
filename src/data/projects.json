@@ -77,7 +77,7 @@
     "thumbnail": "/projects/anautiqua.webp",
     "year": 2022,
     "public": true,
-    "keywords": ["PHP From Scratch", "JQuery", "MySQL", "Merise"],
+    "keywords": ["PHP", "JQuery", "MySQL", "Merise"],
     "images": [
       "/project_illu/anautiqua_1.webp",
       "/project_illu/anautiqua_2.webp"

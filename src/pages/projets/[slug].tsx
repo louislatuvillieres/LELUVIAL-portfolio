@@ -1,7 +1,8 @@
+// pages/projets/[slug].tsx (Pages Router version)
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import LayoutProject from "@/app/components/LayoutProject";
 import projectsData from "@/data/projects.json";
-import { Project } from "@/types/project";
+import { Project } from "@/utils/projectUtils";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = projectsData.map((project) => ({

@@ -6,8 +6,8 @@ interface ScrapLinkProps {
   href: string;
   text: string;
   className?: string;
-  textureUrl?: string; // couche principale (ex texture2)
-  textureUrl2?: string; // couche secondaire (ex texture1)
+  textureUrl?: string;
+  textureUrl2?: string;
   padding?: number;
   layer2Padding?: number;
   glyphWidth?: number;
@@ -20,8 +20,8 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
   href,
   text,
   className = "",
-  textureUrl = "/img/texture-title2.webp", // 👈 inversé
-  textureUrl2 = "/img/texture-title.webp", // 👈 inversé
+  textureUrl = "/img/texture-title.webp",  // ✅ Corrigé - même défaut que ScrapTitle
+  textureUrl2 = "/img/texture-title2.webp", // ✅ Corrigé - même défaut que ScrapTitle
   padding = 18,
   layer2Padding = 6,
   glyphWidth = 7,
@@ -117,7 +117,7 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
             <path d={clipPath2} />
           </clipPath>
 
-          <filter id="scrapShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <filter id={`scrapShadow-${seed}`} x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow
               dx="2"
               dy="2"
@@ -128,7 +128,7 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
           </filter>
         </defs>
 
-        <g filter="url(#scrapShadow)">
+        <g filter={`url(#scrapShadow-${seed})`}>
           <rect
             width={width}
             height={height}
@@ -158,9 +158,9 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
           {text.split("").map((char, i) => {
             const safeChar = char === " " ? "\u00A0" : char;
 
-            const dx = seededRandom(seed, i * 3) - 0.5; // ±1.25px
-            const dy = (seededRandom(seed, i * 5) - 0.5) * 2; // ±2px
-            const rotate = (seededRandom(seed, i * 7) - 0.5) * 4; // ±2deg
+            const dx = seededRandom(seed, i * 3) - 0.5;
+            const dy = (seededRandom(seed, i * 5) - 0.5) * 2;
+            const rotate = (seededRandom(seed, i * 7) - 0.5) * 4;
 
             return (
               <span
@@ -176,7 +176,7 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
           })}
         </span>
 
-        {/* Icône flèche (stable) */}
+        {/* Icône flèche */}
         <Image
           src="/img/arrow-up.webp"
           alt=""

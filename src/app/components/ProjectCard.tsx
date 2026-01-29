@@ -143,17 +143,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
         </div>
 
-        <div
+        <motion.div
           className={`flex font-erode font-light text-lg z-10 ${
             !isEven ? "justify-end" : ""
           }`}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
         >
           {project.keywords.map((keyword, i) => (
-            <div key={i} className="mx-1">
+            <motion.div 
+              key={i} 
+              className="mx-1 relative"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 + i * 0.1 }}
+              whileHover={{ 
+                scale: 1.1,
+                y: -2
+              }}
+            >
               {keyword}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Link>
     </motion.div>
   );
