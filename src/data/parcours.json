@@ -1,7 +1,7 @@
 [
   {
     "vinyl": {
-      "img": "/album_covers/megabbl.jpeg",
+      "img": "/img/parcours_assets/album_covers/megabbl.jpeg",
       "text": "MEGA BBL - Theodora"
     },
     "title": "Diplôme d'Ingénieur",
@@ -11,7 +11,7 @@
     "description": "Dans la continuité de ma volonté de centrer mes projets techniques sur ses utilisateurs, j’intègre l’École Nationale Supérieure de Cognitique. Cette formation me permet d’approfondir les enjeux liés à l’Interaction Humain-Machine, à l’UX et aux Sciences Cognitives, afin de concevoir des expériences numériques à la fois fonctionnelles et ancrées dans les usages.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker1.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker1.webp",
         "position": "bottom-right"
       }
     ],
@@ -19,7 +19,7 @@
   },
   {
     "vinyl": {
-      "img": "/album_covers/charm.jpg",
+      "img": "/img/parcours_assets/album_covers/charm.jpg",
       "text": "Clairo - Charm"
     },
     "title": "Licence 2 Informatique",
@@ -28,7 +28,7 @@
     "description": "Après une première expérience professionnelle en tant que développeur web freelance, j’ai ressenti le besoin d'approfondir mon apprentissage théorique en informatique. Cette année à Paris-Saclay m’a permis d’aborder une informatique plus abstraite et rigoureuse, mais surtout de découvrir l’Interaction Humain-Machine. Ce cours a été un véritable point de bascule : j’y ai compris que je souhaitais concevoir des systèmes techniques à partir des usages, des perceptions et des besoins humains.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker2.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker2.webp",
         "position": "bottom-left"
       }
     ],
@@ -36,7 +36,7 @@
   },
   {
     "vinyl": {
-      "img": "/album_covers/evermore.jpg",
+      "img": "/img/parcours_assets/album_covers/evermore.jpg",
       "text": "Taylor Swift - evermore"
     },
     "title": "Développeur Web Freelance",
@@ -45,7 +45,7 @@
     "description": "J'ai intégré l'équipe de l'agence Glanum en tant que Développeur Junior polyvalent pour répondre à leurs besoins. J'ai été responsable dans divers projets, notamment celui de refonte du site WordPress, Une Maison En Provence. Mon rôle m'a amené à revoir entièrement les requêtes en base de données générées par le thème WordPress, ce qui a permis une optimisation significative du site.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker3.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker3.webp",
         "position": "bottom-right"
       }
     ],
@@ -53,7 +53,7 @@
   },
   {
     "vinyl": {
-      "img": "/album_covers/emails.jpg",
+      "img": "/img/parcours_assets/album_covers/emails.jpg",
       "text": "Sabrina Carpenter - emails i can’t send fwd:"
     },
     "title": "BTS Services Informatiques aux Organisations",
@@ -63,7 +63,7 @@
     "description": "Ce BTS marque un tournant dans mon parcours. Il m’a permis de prendre confiance en mes capacités scientifiques, en devenant majorant à chaque semestre, et de structurer ma pensée logique. J’y ai affirmé mon envie de faire du développement web mon cœur de métier.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker4.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker4.webp",
         "position": "bottom-left"
       }
     ],
@@ -71,7 +71,7 @@
   },
   {
     "vinyl": {
-      "img": "/album_covers/desire.jpg",
+      "img": "/img/parcours_assets/album_covers/desire.jpg",
       "text": "Caroline Polachek - Desire, I Want To Turn Into You"
     },
     "title": "Stagiaire Développement Web",
@@ -80,7 +80,7 @@
     "description": "Lors de ce stage, j’ai réalisé un Proof of Concept pour mon projet Waves. J’y ai découvert des technologies comme Laravel, React et InertiaJS, tout en développant une première sensibilité aux problématiques UX/UI et à la gestion de projet.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker5.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker5.webp",
         "position": "bottom-right"
       }
     ],
@@ -88,7 +88,7 @@
   },
   {
     "vinyl": {
-      "img": "/album_covers/flipthat.jpg",
+      "img": "/img/parcours_assets/album_covers/flipthat.jpg",
       "text": "LOONA - Flip That"
     },
     "title": "Stagiaire Développement Web",
@@ -97,7 +97,7 @@
     "description": "VivantMag est une association dédiée à la médiation culturelle. J'ai été chargé de mettre à jour le site Wordpress de VivantMag, resté inchangé depuis 2019, en assurant la sécurité et la continuité des services.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker6.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker6.webp",
         "position": "bottom-left"
       }
     ],
@@ -105,7 +105,7 @@
   },
   {
     "vinyl": {
-      "img": "/album_covers/comein.jpg",
+      "img": "/img/parcours_assets/album_covers/comein.jpg",
       "text": "Weatherday - Come In"
     },
     "title": "Baccalauréat Général",
@@ -115,7 +115,7 @@
     "description": "Ce baccalauréat m’a permis de développer une forte sensibilité artistique et un regard critique sur le monde. Ces bases créatives et analytiques ont ensuite nourri mon parcours scientifique, et continuent d’influencer ma manière d’aborder le développement et la conception d’expériences numériques.",
     "stickers": [
       {
-        "img": "/img/parcours_stickers/sticker7.webp",
+        "img": "/img/parcours_assets/parcours_stickers/sticker7.webp",
         "position": "bottom-right"
       }
     ],

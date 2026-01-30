@@ -85,7 +85,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {project.background && (
           <Image
-            src={`/img/project_background/background${project.background}.webp`}
+            src={`/img/project_assets/project_background/background${project.background}.webp`}
             alt=""
             width={561}
             height={537}

@@ -20,8 +20,8 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
   href,
   text,
   className = "",
-  textureUrl = "/img/texture-title.webp",  // ✅ Corrigé - même défaut que ScrapTitle
-  textureUrl2 = "/img/texture-title2.webp", // ✅ Corrigé - même défaut que ScrapTitle
+  textureUrl = "/img/assets/texture-title2.webp", 
+  textureUrl2 = "/img/assets/texture-title.webp",
   padding = 18,
   layer2Padding = 6,
   glyphWidth = 7,
@@ -178,7 +178,7 @@ const ScrapLink: React.FC<ScrapLinkProps> = ({
 
         {/* Icône flèche */}
         <Image
-          src="/img/arrow-up.webp"
+          src="/img/assets/arrow-up.webp"
           alt=""
           width={14}
           height={14}

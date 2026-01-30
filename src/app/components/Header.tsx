@@ -8,7 +8,7 @@ const Header: React.FC = ({ }) => {
         <header className="py-2 px-4 sticky top-0 z-[100]">
           <div className="container mx-auto flex justify-between items-center">
             <div className='flex w-fit items-center gap-4'>
-              <Link href="/"><img src="/logo_leluvial_25.png" className="logo w-16 md:h-16 relative z-[100]"></img></Link>
+              <Link href="/"><img src="/img/assets/logo_leluvial_64px.webp" className="logo w-16 md:h-16 relative z-[100]"></img></Link>
             </div>
           </div>
         </header>

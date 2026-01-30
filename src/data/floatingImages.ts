@@ -2,7 +2,7 @@
 export const floatingImages = [
   // Haut gauche - arrivent principalement du haut et de la gauche
   {
-    src: "/img/hellokitty.webp",
+    src: "/img/home_assets/hellokitty.webp",
     x: -140,
     y: -278,
     size: 100,
@@ -12,7 +12,7 @@ export const floatingImages = [
     delay: 0.2,
   },
   {
-    src: "/img/eics.webp",
+    src: "/img/home_assets/eics.webp",
     x: -170,
     y: -240,
     size: 104,
@@ -22,7 +22,7 @@ export const floatingImages = [
     delay: 0.4,
   },
   {
-    src: "/img/camera.webp",
+    src: "/img/home_assets/camera.webp",
     x: -170,
     y: -190,
     size: 92,
@@ -32,7 +32,7 @@ export const floatingImages = [
     delay: 0.1,
   },
   {
-    src: "/img/star2.webp",
+    src: "/img/home_assets/star2.webp",
     x: -180,
     y: -140,
     size: 80,
@@ -42,7 +42,7 @@ export const floatingImages = [
     delay: 0.6,
   },
   {
-    src: "/img/miffypan.webp",
+    src: "/img/home_assets/miffypan.webp",
     x: -90,
     y: -330,
     size: 88,
@@ -52,7 +52,7 @@ export const floatingImages = [
     delay: 0.3,
   },
   {
-    src: "/img/roll.webp",
+    src: "/img/home_assets/roll.webp",
     x: -190,
     y: -290,
     size: 110,
@@ -62,7 +62,7 @@ export const floatingImages = [
     delay: 0.5,
   },
   {
-    src: "/img/ribbon.webp",
+    src: "/img/home_assets/ribbon.webp",
     x: -160,
     y: -300,
     size: 96,
@@ -72,7 +72,7 @@ export const floatingImages = [
     delay: 0.15,
   },
   {
-    src: "/img/morisot.webp",
+    src: "/img/home_assets/morisot.webp",
     x: -40,
     y: -335,
     size: 120,
@@ -82,7 +82,7 @@ export const floatingImages = [
     delay: 0.25,
   },
   {
-    src: "/img/sun.webp",
+    src: "/img/home_assets/sun.webp",
     x: -200,
     y: -180,
     size: 120,
@@ -92,7 +92,7 @@ export const floatingImages = [
     delay: 0.35,
   },
   {
-    src: "/img/star3.webp",
+    src: "/img/home_assets/star3.webp",
     x: -150,
     y: -350,
     size: 200,
@@ -102,7 +102,7 @@ export const floatingImages = [
     delay: 0.45,
   },
   {
-    src: "/img/star1.webp",
+    src: "/img/home_assets/star1.webp",
     x: -0,
     y: -340,
     size: 80,
@@ -114,7 +114,7 @@ export const floatingImages = [
 
   // Bas droite - arrivent principalement du bas et de la droite
   {
-    src: "/img/flower.webp",
+    src: "/img/home_assets/flower.webp",
     x: 160,
     y: 180,
     size: 140,
@@ -124,7 +124,7 @@ export const floatingImages = [
     delay: 0.2,
   },
   {
-    src: "/img/pepsi.webp",
+    src: "/img/home_assets/pepsi.webp",
     x: 230,
     y: 190,
     size: 120,
@@ -134,7 +134,7 @@ export const floatingImages = [
     delay: 0.4,
   },
   {
-    src: "/img/cassette.webp",
+    src: "/img/home_assets/cassette.webp",
     x: 100,
     y: 272,
     size: 150,
@@ -144,7 +144,7 @@ export const floatingImages = [
     delay: 0.1,
   },
   {
-    src: "/img/disco.webp",
+    src: "/img/home_assets/disco.webp",
     x: 180,
     y: 220,
     size: 120,
@@ -154,7 +154,7 @@ export const floatingImages = [
     delay: 0.3,
   },
   {
-    src: "/img/lapin.webp",
+    src: "/img/home_assets/lapin.webp",
     x: 260,
     y: 300,
     size: 200,
@@ -164,7 +164,7 @@ export const floatingImages = [
     delay: 0.5,
   },
   {
-    src: "/img/elgato.webp",
+    src: "/img/home_assets/elgato.webp",
     x: 160,
     y: 300,
     size: 200,
@@ -174,7 +174,7 @@ export const floatingImages = [
     delay: 0.15,
   },
   {
-    src: "/img/star.webp",
+    src: "/img/home_assets/star.webp",
     x: 280,
     y: 160,
     size: 84,
@@ -184,7 +184,7 @@ export const floatingImages = [
     delay: 0.25,
   },
   {
-    src: "/img/fish.webp",
+    src: "/img/home_assets/fish.webp",
     x: 260,
     y: 200,
     size: 84,
@@ -194,7 +194,7 @@ export const floatingImages = [
     delay: 0.35,
   },
   {
-    src: "/img/tamagotchi.webp",
+    src: "/img/home_assets/tamagotchi.webp",
     x: 200,
     y: 280,
     size: 100,
@@ -204,7 +204,7 @@ export const floatingImages = [
     delay: 0.45,
   },
   {
-    src: "/img/swan.webp",
+    src: "/img/home_assets/swan.webp",
     x: 280,
     y: 220,
     size: 110,
@@ -214,7 +214,7 @@ export const floatingImages = [
     delay: 0.55,
   },
   {
-    src: "/img/cinnamoroll.webp",
+    src: "/img/home_assets/cinnamoroll.webp",
     x: 230,
     y: 260,
     size: 108,

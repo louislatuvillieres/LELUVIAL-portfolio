@@ -23,7 +23,7 @@ const LayoutProject: NextPage<{
       description: project.description1,
       screenshot: project.screenshot1,
       imagePosition: "right" as const,
-      tapeImage: "/img/tape/tape-left.webp",
+      tapeImage: "/img/project_assets/tape/tape-left.webp",
       tapeClass: "absolute top-4 -left-6 z-20 -rotate-45",
       tapeWidth: 85,
       tapeHeight: 30,
@@ -33,7 +33,7 @@ const LayoutProject: NextPage<{
       description: project.description2,
       screenshot: project.screenshot2,
       imagePosition: "left" as const,
-      tapeImage: "/img/tape/tape-right.webp",
+      tapeImage: "/img/project_assets/tape/tape-right.webp",
       tapeClass: "absolute top-8 -right-8 z-20 rotate-45",
       tapeWidth: 100,
       tapeHeight: 30,
@@ -43,7 +43,7 @@ const LayoutProject: NextPage<{
       description: project.description3,
       screenshot: project.screenshot3,
       imagePosition: "right" as const,
-      tapeImage: "/img/tape/tape-corner.webp",
+      tapeImage: "/img/project_assets/tape/tape-corner.webp",
       tapeClass: "absolute -top-2 -left-2 z-20",
       tapeWidth: 134,
       tapeHeight: 41,
@@ -69,7 +69,7 @@ const LayoutProject: NextPage<{
               src={project.thumbnail}
               width={600}
               height={400}
-              className="w-full h-auto"
+              className="w-[400px] h-auto mx-auto"
               priority
             />
 
@@ -94,7 +94,7 @@ const LayoutProject: NextPage<{
         <section className="px-6 py-16 max-w-4xl mx-auto">
           <div className="relative">
             <Image
-              src="/img/tape/tape-top.webp"
+              src="/img/project_assets/tape/tape-top.webp"
               alt=""
               width={125}
               height={39}
@@ -136,14 +136,6 @@ const LayoutProject: NextPage<{
                     : ""
                 }`}
               >
-                {/* Decorative tape */}
-                <Image
-                  src={section.tapeImage}
-                  alt=""
-                  width={section.tapeWidth}
-                  height={section.tapeHeight}
-                  className={section.tapeClass}
-                />
 
                 {/* IMAGE - Affichée en premier sur mobile si à gauche */}
                 {hasScreenshot && section.imagePosition === "left" && (
@@ -175,6 +167,14 @@ const LayoutProject: NextPage<{
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
+                  {/* Decorative tape */}
+                  <Image
+                    src={section.tapeImage}
+                    alt=""
+                    width={section.tapeWidth}
+                    height={section.tapeHeight}
+                    className={section.tapeClass}
+                  />
                   <p className="font-plex text-lg leading-relaxed">
                     {section.description}
                   </p>

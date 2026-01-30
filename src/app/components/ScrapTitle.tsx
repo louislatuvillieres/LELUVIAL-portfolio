@@ -17,8 +17,8 @@ interface ScrapTitleProps {
 const ScrapTitle: React.FC<ScrapTitleProps> = ({
   text,
   className = "",
-  textureUrl = "/img/texture-title.webp",
-  textureUrl2 = "/img/texture-title2.webp",
+  textureUrl = "/img/assets/texture-title.webp",
+  textureUrl2 = "/img/assets/texture-title2.webp",
   padding = 12,
   layer2Padding = 8,
   glyphWidth = 22,
@@ -67,6 +67,8 @@ const ScrapTitle: React.FC<ScrapTitleProps> = ({
     10,
     `${seed}-layer2` // passons une seed dérivée
   );
+
+  const textSizeClass = textSize == "5xl" ? "text-5xl" : textSize == "4xl" ? "text-4xl" : ""
 
   return (
     <div
@@ -151,7 +153,7 @@ const ScrapTitle: React.FC<ScrapTitleProps> = ({
       </svg>
 
       {/* Texte HTML par lettre avec randomisation */}
-      <span className={`absolute inset-0 z-10 flex items-center justify-center text-${textSize} font-pangolin text-white -rotate-3 top-3 text-center`}>
+      <span className={`absolute inset-0 z-10 flex items-center justify-center ${textSizeClass} font-pangolin text-white -rotate-3 top-3 text-center`}>
         {text.split("").map((char, i) => {
           const safeChar = char === " " ? "\u00A0" : char;
 

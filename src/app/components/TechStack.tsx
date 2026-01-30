@@ -38,7 +38,7 @@ const TechStack: React.FC<TechStackProps> = ({ keywords, seed }) => {
             whileHover={{ 
               scale: 1.2, 
               rotate: rotation - 5,
-              zIndex: 100
+              zIndex: 50
             }}
           >
             <div 
@@ -51,7 +51,7 @@ const TechStack: React.FC<TechStackProps> = ({ keywords, seed }) => {
                 width={600}
                 height={600}
                 alt={keyword}
-                src={`/skills/${keyword.toLowerCase().replace(/ /g, "-")}.png`}
+                src={`/img/project_assets/skills/${keyword.toLowerCase().replace(/ /g, "-")}.png`}
               />
               
               {/* Tooltip manuscrit */}

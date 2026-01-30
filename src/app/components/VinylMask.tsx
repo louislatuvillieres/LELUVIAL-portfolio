@@ -10,7 +10,7 @@ interface VinylImageProps {
 
 const VinylImage: React.FC<VinylImageProps> = ({
   imageSrc,
-  vinylSrc = "/img/vinyl.webp",
+  vinylSrc = "/img/parcours_assets/vinyl.webp",
   size = 300,
 }) => {
   const patternId = `vinyl-pattern-${imageSrc.replace(/\W/g, "")}`;

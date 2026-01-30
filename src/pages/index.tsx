@@ -29,11 +29,11 @@ const Index = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Image
-              src="/me2.png"
+              src="/img/assets/me.webp"
               alt="Picture of me"
               className="absolute w-[40rem] min-w-[40rem] max-w-[40rem] z-10"
-              width={1020}
-              height={1038}
+              width={800}
+              height={814}
             />
           </motion.div>
 
@@ -122,7 +122,7 @@ const Index = () => {
               transition={{ delay: 0.7, type: "spring", stiffness: 200 }}
             >
               <NameImage
-                src="/img/louis.webp"
+                src="/img/home_assets/louis.webp"
                 alt="Louis"
                 width={303}
                 height={82}
@@ -136,7 +136,7 @@ const Index = () => {
               transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
             >
               <NameImage
-                src="/img/latu.webp"
+                src="/img/home_assets/latu.webp"
                 alt="Latu"
                 width={247}
                 height={78}
@@ -150,7 +150,7 @@ const Index = () => {
               transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
             >
               <NameImage
-                src="/img/villieres.webp"
+                src="/img/home_assets/villieres.webp"
                 alt="Villières"
                 width={556}
                 height={87}
@@ -196,7 +196,7 @@ const Index = () => {
             >
               Mes projets
               <Image
-                src="/img/arrow-up.webp"
+                src="/img/assets/arrow-up.webp"
                 alt=""
                 width={20}
                 height={20}
@@ -217,7 +217,7 @@ const Index = () => {
             >
               Mon parcours
               <Image
-                src="/img/arrow-up.webp"
+                src="/img/assets/arrow-up.webp"
                 alt=""
                 width={20}
                 height={20}

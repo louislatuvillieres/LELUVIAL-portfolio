@@ -4,17 +4,19 @@
     "slug": "meteolab",
     "icon": "",
     "background": 2,
-    "thumbnail": "/projects/meteolab.webp",
+    "thumbnail": "/img/project_assets/meteolab.webp",
     "year": 2024,
     "public": true,
     "keywords": ["React", "Tailwind", "µPython", "PHP", "MySQL"],
     "images": [
-      "/project_illu/meteolab_1.webp",
-      "/project_illu/meteolab_2.webp"
+      "/img/project_assets/illustrations/meteolab_1.webp",
+      "/img/project_assets/illustrations/meteolab_2.webp"
     ],
     "link": "https://meteolab.leluvial.com",
     "description": "MétéoLab est un projet transdisciplinaire réalisé dans le cadre de ma formation à l’ENSC. Il consiste en la conception d’une station météo connectée installée à proximité de l’école, couplée à un site web interactif visant à sensibiliser les étudiant·es à l’influence des conditions météorologiques sur la cognition, l’humeur et les performances de travail.",
+    "screenshot1": ["/img/project_assets/meteolab_screenshot_1.webp", 700, 529],
     "description1": "Le projet repose sur la collecte de données météorologiques locales (température, humidité, pression atmosphérique et luminosité) via une station physique basée sur un Raspberry Pi Pico et plusieurs capteurs (BME680, SI1145, TH02). Les données sont envoyées toutes les 15 minutes vers une base de données distante, puis exploitées par une application web développée en React afin d’identifier un profil « météo-cognitif » parmi sept catégories définies à partir d’un état de l’art scientifique.",
+    "screenshot2": ["/img/project_assets/meteolab_screenshot_2.webp", 700, 737],
     "description2": "J’ai personnellement conçu et développé une API de fallback permettant d’assurer la continuité du service en cas d’indisponibilité de la station physique ou de problèmes de connexion réseau. Cette API repose sur les données ouvertes d’Open-Météo, calibrées sur les coordonnées géographiques de l’ENSC, et s’intègre de manière transparente au site web. Elle garantit que les profils météo-cognitifs restent accessibles à tout moment, même en l’absence de données locales.",
     "description3": "Le site web a été conçu avec une attention particulière portée à l’accessibilité, à la lisibilité des contenus et à l’expérience utilisateur. Des tests utilisateurs ont été menés auprès d’étudiant·es de l’ENSC afin d’itérer sur la navigation, la hiérarchie de l’information et la compréhension des profils. MétéoLab constitue ainsi un projet complet mêlant électronique, développement full-stack, recherche UX et vulgarisation scientifique."
   },
@@ -23,11 +25,11 @@
     "slug": "une-maison-en-provence",
     "icon": "",
     "background": 1,
-    "thumbnail": "/projects/unemaisonenprovence.webp",
+    "thumbnail": "/img/project_assets/unemaisonenprovence.webp",
     "year": 2024,
     "public": false,
     "keywords": ["WordPress", "PHP", "JQuery", "MySQL"],
-    "images": ["/project_illu/umep_1.webp", "/project_illu/umep_2.webp"],
+    "images": ["/img/project_assets/illustrations/umep_1.webp", "/img/project_assets/illustrations/umep_2.webp"],
     "link": "https://dev.unemaisonenprovence.fr",
     "description": "Mon intervention sur le projet Une Maison En Provence a été effectuée au cours de ma mission à l'Agence Glanum en 2024. Ce projet consiste en la création d'un site WordPress pour une agence immobilière présentant à la fois les annonces actuelles, ainsi que celles déjà vendues, depuis 2005. Initialement confié à un développeur freelance externe, il a été repris par l'agence en 2023.",
     "description1": "Cependant, le thème WordPress choisi s'est révélé inadapté à la gestion d'une si grande quantité de données, entraînant des problèmes de performances majeurs, avec des temps de chargement dépassant souvent les 20 secondes sur certaines pages en production. Pour remédier à cela, j'ai été chargé de retravailler sur le thème WordPress en effectuant des requêtes à la bases de données métier au lieu des tables WordPress standard qui n'étaient pas efficaces dans la gestion d'un grand nombre de biens immobiliers et de champs personnalisés (ACF). Grâce à cette approche, nous avons réussi à réduire les temps de chargement, tout en divisant le nombre de requêtes SQL par page effectuées par plus de 3, passant de 2200 à 600 requêtes.",
@@ -41,32 +43,32 @@
     "slug": "waves",
     "icon": "",
     "background": 5,
-    "thumbnail": "/projects/waves.webp",
+    "thumbnail": "/img/project_assets/waves.webp",
     "year": 2023,
     "public": true,
     "keywords": ["Laravel", "React", "MySQL", "Merise"],
-    "images": ["/project_illu/waves_1.webp", "/project_illu/waves_2.webp"],
+    "images": ["/img/project_assets/illustrations/waves_1.webp", "/img/project_assets/illustrations/waves_2.webp"],
     "link": "",
     "description": "Ce projet a été réalisé dans le cadre d'un stage de deuxième année à l'agence Glanum. Il m'a été demandé de réaliser seul un projet de mon choix, en prenant appui sur les connaissances et les ressources humaines mises à disposition par l'entreprise. Le résultat attendu était donc de fournir un Proof of Concept (PoC), soit une sorte de version de démonstration, de mon projet, en me basant sur des technologies et frameworks utilisés dans des cadres professionnels.",
     "description1": "Les utilisateurs peuvent créer un compte avec un formulaire d'inscription et gérer leurs fichiers musicaux en les mettant en ligne dans une bibliothèque. Le lecteur de musique intégré permet la lecture, la navigation et la gestion du volume des morceaux. Les administrateurs disposent également d'une interface dédiée pour gérer les contenus de la base de données, y compris les artistes, les albums et les pistes.",
-    "screenshot1": ["/projects/waves_screenshot_1.webp", 1341, 1080]
+    "screenshot1": ["/img/project_assets/waves_screenshot_1.webp", 1341, 1080]
   },
   {
     "name": "VivantMag",
     "slug": "vivantmag",
     "icon": "",
     "background": 3,
-    "thumbnail": "/projects/vivantmag.webp",
+    "thumbnail": "/img/project_assets/vivantmag.webp",
     "year": 2022,
     "public": true,
     "keywords": ["WordPress", "PHP", "MySQL"],
     "images": [
-      "/project_illu/vivantmag_1.webp",
-      "/project_illu/vivantmag_2.webp"
+      "/img/project_assets/illustrations/vivantmag_1.webp",
+      "/img/project_assets/illustrations/vivantmag_2.webp"
     ],
     "link": "https://vivantmag.fr/",
     "description": "L'Adadiff Casi est une association qui intervient autour de la diffusion et la production de spectacles vivants tout comme la médiation culturelle. Chaque année, l'association propose à ses artistes et salles de spectacles adhérentes un magazine qui promeut des spectacles vivants tout comme des articles visant à rendre le spectacle vivant plus accessible : VivantMag.",
-    "attachment": "/projects/VivantMag - Dossier de presse.pdf",
+    "attachment": "/img/project_assets/VivantMag - Dossier de presse.pdf",
     "description1": "En juin 2022, le site Wordpress de VivantMag n'avait pas été mis à jour depuis 2019. Afin de continuer de maintenir la sécurité du site, il m'a été demandé de mettre à jour, dans la mesure du possible, la version de Wordpress, tout en maintenant la continuité du service des différents plugins et thèmes utilisés par le site, mais parfois n'étant plus maintenus à jour. J'ai donc pu découvrir l'environnement Wordpress durant ce stage de 4 semaines, améliorer le SEO des contenus du site via le plugin Yoast SEO, et finalement réussir à mettre en production la mise à jour de Wordpress 5.1.13 (2019) à Wordpress 5.9.3 (2022). Par ailleurs, j'ai pu réaliser des missions de Publication Assistée par Ordinateur (PAO), notamment dans le cadre de la réalisation d'un dossier de presse pour un spectacle vivant."
   },
   {
@@ -74,19 +76,19 @@
     "slug": "anautiqua",
     "icon": "",
     "background": 4,
-    "thumbnail": "/projects/anautiqua.webp",
+    "thumbnail": "/img/project_assets/anautiqua.webp",
     "year": 2022,
     "public": true,
     "keywords": ["PHP", "JQuery", "MySQL", "Merise"],
     "images": [
-      "/project_illu/anautiqua_1.webp",
-      "/project_illu/anautiqua_2.webp"
+      "/img/project_assets/illustrations/anautiqua_1.webp",
+      "/img/project_assets/illustrations/anautiqua_2.webp"
     ],
     "link": "https://anautiqua.leluvial.com",
     "description": "Le projet Anautiqua se base sur un univers fictif créé par Noah Brunet, un ami. Il s'agit d'un site internet permettant de passer un “test de personnalité” permettant de relier la personne qui passe le test à l'un des pays de l'univers d'Anautiqua.",
     "description1": "Nous arrivons donc d'abord sur une page vitrine, avec possibilité de s'inscrire, une page de connexion, ainsi qu'une page contact. Est aussi géré le compte, avec des autorisations différentes selon si l'on est administrateur ou non, permettant par exemple l'édition du test de personnalité.",
-    "screenshot1": ["/projects/anautiqua_screenshot_1.webp", 1920, 876],
+    "screenshot1": ["/img/project_assets/anautiqua_screenshot_1.webp", 1920, 876],
     "description2": "Une fois connecté, nous pouvons accéder au test de personnalité, nous permettant de nous affecter à un pays fictif d'Anautiqua. Il s'agit d'un test de 20 questions, qui va attribuer des points en base de données par rapport à chacun des 14 pays à chacune des réponses. La plus grande proportion de réponses adéquates à un pays nous permet donc d'attribuer à l'utilisateur un pays le plus en adéquation avec sa personnalité, notamment pour des parties de Jeu de Rôle.",
-    "screenshot2": ["/projects/anautiqua_screenshot_2.webp", 685, 390]
+    "screenshot2": ["/img/project_assets/anautiqua_screenshot_2.webp", 685, 390]
   }
 ]
