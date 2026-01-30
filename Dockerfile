@@ -1,24 +1,18 @@
-# ---------- Build ----------
 FROM node:20-alpine AS builder
 WORKDIR /app
+
+RUN apk add --no-cache libc6-compat
+ENV NEXT_DISABLE_SWC=1
 
 COPY package.json package-lock.json* ./
 RUN npm install
 
 COPY . .
-RUN npm run build
+RUN npm run build   # ✔️ SUFFISANT
 
-
-# ---------- Serve ----------
 FROM nginx:alpine
-
-# Supprime la conf par défaut
 RUN rm /etc/nginx/conf.d/default.conf
-
-# Ajoute ta conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copie le site statique
 COPY --from=builder /app/out /usr/share/nginx/html
 
 EXPOSE 80

@@ -134,7 +134,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({
             height="500"
           >
             <image
-              href="/paper_texture.jpg"
+              href="/img/assets/paper_texture.jpg"
               x="0"
               y="0"
               width="500"
