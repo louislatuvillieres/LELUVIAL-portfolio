@@ -1,20 +1,16 @@
 import "/src/app/globals.css";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { VT323 } from "next/font/google";
-import { Schoolbell } from "next/font/google";
-import { IBM_Plex_Sans } from "next/font/google";
-import { Londrina_Sketch } from "next/font/google";
-import { Pangolin } from "next/font/google";
+import { VT323, Schoolbell, IBM_Plex_Sans, Londrina_Sketch, Pangolin } from "next/font/google";
 import localFont from "next/font/local";
 import SmoothScrolling from "@/app/components/SmoothScrolling";
 import Layout from "@/app/components/Layout";
-import { SetStateAction, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import AnimatedSVG from "@/app/components/AnimatedSVG";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import InnerLayoutAnimate from "@/app/components/InnerLayoutAnimate";
+import { PageTransitionProvider, usePageTransition } from "@/app/components/PageTransitionContext";
 
+// Configuration des fonts
 const erode = localFont({
   src: [
     {
@@ -29,84 +25,82 @@ const erode = localFont({
   display: "swap",
   variable: "--font-erode",
 });
+
 export const vt323 = VT323({
   weight: "400",
   style: "normal",
   variable: "--font-vt323",
   subsets: ["latin"],
 });
+
 export const schoolbell = Schoolbell({
   weight: "400",
   variable: "--font-schoolbell",
   subsets: ["latin"],
 });
+
 export const ibmplexsans = IBM_Plex_Sans({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   variable: "--font-plex",
   subsets: ["latin"],
 });
+
 export const londrina = Londrina_Sketch({
   weight: ["400"],
   variable: "--font-londrina",
   subsets: ["latin"],
 });
+
 export const pangolin = Pangolin({
   weight: ["400"],
   variable: "--font-pangolin",
   subsets: ["latin"],
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+// Composant wrapper pour gérer les transitions
+const AppContent = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const [pageChanged, setPageChanged] = useState(false);
-
-  const [animateToExit, setAnimateToExit] = useState(false);
-  const [animateToEnter, setAnimateToEnter] = useState(false);
+  const { animateToOpen } = usePageTransition();
 
   return (
-    <div
-      className={
-        vt323.variable +
-        " " +
-        schoolbell.variable +
-        " " +
-        ibmplexsans.variable +
-        " " +
-        erode.variable +
-        " " +
-        londrina.variable +
-        " " +
-        pangolin.variable
-      }
-    >
+    <Layout>
+      <AnimatePresence
+        mode="wait"
+        initial={false}
+        onExitComplete={() => {
+          // Animation d'ouverture après la sortie
+          animateToOpen();
+        }}
+      >
+        <InnerLayoutAnimate key={router.asPath}>
+          <Component {...pageProps} />
+        </InnerLayoutAnimate>
+      </AnimatePresence>
+    </Layout>
+  );
+};
+
+function MyApp(props: AppProps) {
+  const fontClasses = [
+    vt323.variable,
+    schoolbell.variable,
+    ibmplexsans.variable,
+    erode.variable,
+    londrina.variable,
+    pangolin.variable,
+  ].join(" ");
+
+  return (
+    <div className={fontClasses}>
       <Head>
         <title>L&apos;ELUVIAL</title>
         <meta name="description" content="Portfolio - Louis Latu-Villières" />
       </Head>
-      <SmoothScrolling>
-        <AnimatedSVG
-          animateToEnter={animateToEnter}
-          animateToExit={animateToExit}
-          setAnimateToEnter={setAnimateToEnter}
-          setAnimateToExit={setAnimateToExit}
-        />
-        <Layout>
-          <AnimatePresence
-            mode="wait"
-            initial={true}
-            onExitComplete={() => {
-              setAnimateToEnter(true);
-            }}
-          >
-            <InnerLayoutAnimate
-              setAnimateToExit={setAnimateToExit}
-              key={router.asPath}
-            >
-              <Component {...pageProps} />
-            </InnerLayoutAnimate>
-          </AnimatePresence>
-        </Layout>
-      </SmoothScrolling>
+      <PageTransitionProvider>
+        <SmoothScrolling>
+          <AppContent {...props} />
+        </SmoothScrolling>
+      </PageTransitionProvider>
     </div>
   );
 }

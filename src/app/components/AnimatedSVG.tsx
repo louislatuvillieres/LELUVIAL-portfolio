@@ -142,7 +142,7 @@ const AnimatedSVG: React.FC<AnimatedSVGProps> = ({
             />
           </pattern>
         </defs>
-        <style type="text/css">{".st0{fill:url(#img1)}"}</style>
+        <style type="text/css">{".st0{fill:bg-[(#img1)}]"}</style>
         <path d={path} className="st0"></path>
       </svg>
     </div>

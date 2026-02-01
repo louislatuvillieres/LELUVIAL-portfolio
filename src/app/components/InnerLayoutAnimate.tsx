@@ -1,31 +1,48 @@
-import React, { Dispatch, ReactNode, SetStateAction, useEffect } from 'react';
-import { motion, usePresence } from 'framer-motion';
+import React, { useEffect, ReactNode } from "react";
+import { motion } from "framer-motion";
+import { usePageTransition } from "./PageTransitionContext";
+import { useRouter } from "next/router";
+import { useLenis } from "@studio-freight/react-lenis";
 
-type InnerLayoutAnimateProps = {
+interface InnerLayoutAnimateProps {
   children: ReactNode;
-  setAnimateToExit: Dispatch<SetStateAction<boolean>>
-};
+}
 
-const InnerLayoutAnimate: React.FC<InnerLayoutAnimateProps> = (
-    { 
-      children, 
-      setAnimateToExit
-    }
-  ) => {
-  const [isPresent, safeToRemove] = usePresence();
+const InnerLayoutAnimate: React.FC<InnerLayoutAnimateProps> = ({
+  children,
+}) => {
+  const { animateToClose } = usePageTransition();
+  const router = useRouter();
+  const lenis = useLenis();
 
   useEffect(() => {
-    if(!isPresent) {
-      setAnimateToExit(true);
-      setTimeout(safeToRemove, 2000);
-    }
-  }, [isPresent])
-  
+    // Handler pour les changements de route
+    const handleRouteChangeStart = async () => {
+      // Scroll to top
+      lenis?.scrollTo(0, { immediate: true });
+      
+      // Lance l'animation de fermeture
+      await animateToClose();
+    };
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+    };
+  }, [router, animateToClose, lenis]);
+
   return (
     <motion.div
-      className='w-full min-h-[91.5vh]'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
     >
-        {children}
+      {children}
     </motion.div>
   );
 };
