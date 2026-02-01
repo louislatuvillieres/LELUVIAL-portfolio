@@ -83,7 +83,7 @@ export const PageTransitionProvider: React.FC<
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 500 500"
           preserveAspectRatio="xMidYMid slice"
-          className="h-full w-full"
+          className="h-[100dvh] w-full"
           aria-hidden="true"
         >
           <defs>

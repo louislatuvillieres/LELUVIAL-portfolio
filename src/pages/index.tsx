@@ -16,13 +16,12 @@ const Index = () => {
 
   return (
     <div
-      className="flex flex-col md:flex-row w-full"
-      style={{ height: "calc(100vh - 90px)" }}
+      className="flex flex-col md:flex-row w-full overflow-x-hidden min-h-[calc(100vh-90px)]"
     >
       {/* SECTION IMAGES - 60% largeur desktop, centre du div comme référence */}
-      <div className="relative w-full md:w-[60%] h-3/5 md:h-full flex justify-center items-center overflow-x-hidden md:overflow-x-visible">
+      <div className="relative w-full md:w-[60%] h-3/5 md:min-h-[calc(100vh-90px)] flex justify-center items-center overflow-x-hidden md:overflow-x-visible">
         {/* Image principale - statique ou animée selon votre préférence */}
-        <div className=" relative w-[40rem] min-w-[40rem] max-w-[40rem] h-[652px] flex items-center justify-center xl:scale-100 shrink-0 lg:scale-[80%] md:scale-75 scale-[60%] 2xl:scale-105 2xl:translate-y-4 2xl:-translate-x-12">
+        <div className="relative -mt-20 md:mt-0 w-[40rem] min-w-[40rem] max-w-[40rem] h-[652px] flex items-center justify-center xl:scale-100 shrink-0 lg:scale-[80%] md:scale-75 scale-[60%] 2xl:scale-105 2xl:translate-y-4 2xl:-translate-x-12">
           <motion.div className="absolute top-0 left-0 z-10"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,11 +64,6 @@ const Index = () => {
                 x: img.x,
                 y: img.y,
               }}
-              whileHover={{
-                scale: 1.2,
-                rotate: img.rotate + 10,
-                zIndex: 30,
-              }}
               transition={{
                 delay: 0.5 + i * 0.1,
                 duration: 0.5,
@@ -92,8 +86,8 @@ const Index = () => {
       </div>
 
       {/* SECTION TEXTE - 40% largeur desktop */}
-      <div className="w-full md:w-[40%] h-2/5 md:h-full flex flex-col justify-center md:items-end text-center md:text-right md:space-y-6 md:pr-1">
-        <motion.div className="w-auto -mt-48 md:mt-0 sm:-ml-3 self-center md:self-auto ml-0 md:ml-0"
+      <div className="w-full md:w-[40%] h-2/5 md:min-h-[calc(100vh-90px)] flex flex-col justify-center md:items-end text-center md:text-right md:space-y-6 md:pr-1">
+        <motion.div className="w-auto -mt-56 md:mt-0 sm:-ml-3 self-center md:self-auto ml-0 md:ml-0"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -101,12 +95,12 @@ const Index = () => {
           <ScrapTitle text="Bienvenue !" />
         </motion.div>
         <motion.div 
-          className="font-plex max-[280px]:text-2xl text-3xl lg:text-4xl"
+          className="font-plex text-2xl lg:text-4xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <span className="inline-flex flex-wrap md:justify-end justify-center items-baseline gap-x-2 w-full font-medium px-2 md:px-0">
+          <span className="inline-flex flex-wrap md:justify-end justify-center items-baseline gap-x-2 w-full font-medium px-4 md:px-0">
             <motion.span 
               className="font-normal text-inherit w-auto md:w-full xl:w-auto"
               initial={{ opacity: 0 }}
@@ -187,12 +181,11 @@ const Index = () => {
           transition={{ delay: 1.6, duration: 0.4, type: "spring", stiffness: 400 }}
         >
           <motion.div
-            whileHover={{ x : -10 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
             <Link
               href="/projets"
-              className="font-plex font-semibold text-indigo-950 text-xl inline-flex items-center gap-1 transition-all duration-300"
+              className="font-plex font-semibold text-indigo-950 text-xl inline-flex items-center gap-1 transition-all duration-300 hover:-translate-x-3"
             >
               Mes projets
               <Image
@@ -206,14 +199,13 @@ const Index = () => {
           </motion.div>
 
           <motion.div
-            whileHover={{ x : -10 }}
             transition={{ type: "spring", stiffness: 400 }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
           >
             <Link
               href="/parcours"
-              className="font-plex font-semibold text-indigo-950 text-xl inline-flex items-center gap-1 transition-all duration-300"
+              className="font-plex font-semibold text-indigo-950 text-xl inline-flex items-center gap-1 transition-all duration-300 hover:-translate-x-3"
             >
               Mon parcours
               <Image

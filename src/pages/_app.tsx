@@ -66,7 +66,7 @@ const AppContent = ({ Component, pageProps }: AppProps) => {
     <Layout>
       <AnimatePresence
         mode="wait"
-        initial={false}
+        initial={true}
         onExitComplete={() => {
           // Animation d'ouverture après la sortie
           animateToOpen();
