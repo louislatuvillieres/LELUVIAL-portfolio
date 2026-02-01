@@ -41,6 +41,13 @@ const InnerLayoutAnimate: React.FC<InnerLayoutAnimateProps> = ({
         duration: 0.3,
         ease: "easeInOut",
       }}
+      style={{
+        transform: 'translate3d(0, 0, 0)',
+        WebkitTransform: 'translate3d(0, 0, 0)',
+        willChange: 'opacity',
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+      }}
     >
       {children}
     </motion.div>

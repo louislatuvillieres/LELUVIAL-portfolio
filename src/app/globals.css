@@ -45,3 +45,41 @@
     text-wrap: balance;
   }
 }
+
+/* Accélération GPU globale */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimisations pour les éléments animés */
+svg, path {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  will-change: auto; /* Important : ne pas mettre will-change sur tous les éléments */
+}
+
+/* Désactiver le tap highlight sur iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Améliorer le rendu des images et SVG */
+img, svg {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Optimiser le scroll sur iOS */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Pour les animations Framer Motion */
+[data-framer-component-type] {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
