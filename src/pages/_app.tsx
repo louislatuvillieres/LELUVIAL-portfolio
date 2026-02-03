@@ -8,7 +8,7 @@ import Layout from "@/app/components/Layout";
 import { useRouter } from "next/router";
 import { AnimatePresence } from "framer-motion";
 import InnerLayoutAnimate from "@/app/components/InnerLayoutAnimate";
-import { PageTransitionProvider, usePageTransition } from "@/app/components/PageTransitionContext";
+import { PageTransitionProvider } from "@/app/components/PageTransitionContext";
 
 // Configuration des fonts
 const erode = localFont({
@@ -60,18 +60,10 @@ export const pangolin = Pangolin({
 // Composant wrapper pour gérer les transitions
 const AppContent = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const { animateToOpen } = usePageTransition();
 
   return (
     <Layout>
-      <AnimatePresence
-        mode="wait"
-        initial={true}
-        onExitComplete={() => {
-          // Animation d'ouverture après la sortie
-          animateToOpen();
-        }}
-      >
+      <AnimatePresence mode="wait" initial={false}>
         <InnerLayoutAnimate key={router.asPath}>
           <Component {...pageProps} />
         </InnerLayoutAnimate>

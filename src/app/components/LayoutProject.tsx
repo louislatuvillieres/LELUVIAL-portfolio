@@ -102,7 +102,7 @@ const LayoutProject: NextPage<{
             />
 
             <div
-              className="relative bg-white p-10 shadow-xl"
+              className="relative bg-white p-10 shadow-md"
               style={{
                 transform: `rotate(${seededRotation(`${seed}-desc`, -1, 1)}deg)`,
               }}
@@ -127,7 +127,7 @@ const LayoutProject: NextPage<{
           return (
             <section
               key={section.index}
-              className="px-6 my-20 max-w-7xl mx-auto"
+              className="px-6 py-12 max-w-7xl overflow-x-hidden overflow-y-visible mx-auto"
             >
               <div
                 className={`relative ${
@@ -149,7 +149,7 @@ const LayoutProject: NextPage<{
 
                 {/* TEXT */}
                 <motion.div
-                  className={`relative bg-white p-8 shadow-xl ${
+                  className={`relative bg-white p-8 shadow-md ${
                     hasScreenshot
                       ? section.imagePosition === "left"
                         ? "order-1 md:order-2"
