@@ -73,8 +73,8 @@ const ParcoursCard: React.FC<ParcoursCardProps> = ({
 
       {/* Conteneur Vinyl + Stickers */}
       <div
-        className={`${marginAuto} w-fit h-60 flex relative mt-4 ${
-          isEven ? "-pl-12 md:-pl-2" : "-pr-12 md:-pr-2"
+        className={`${marginAuto} h-60 flex relative mt-4 ${
+          isEven ? "-pl-12 md:-pl-2 -ml-10 md:-ml-0" : "-pr-12 md:-pr-2 -mr-10 md:-ml-0"
         } -mb-4 md:mb-0 md:scale-100 scale-75 ${
           !isEven ? "flex-row-reverse" : "flex-row"
         }`}
@@ -84,7 +84,7 @@ const ParcoursCard: React.FC<ParcoursCardProps> = ({
           transition={{ type: "spring", stiffness: 50, damping: 30 }}
         >
           <Image
-            className="size-60 z-10 shadow-md transition-shadow duration-300"
+            className="size-60 min-w-60 z-10 shadow-md transition-shadow duration-300"
             style={{ transform: `rotate(${rotation}deg)` }}
             src={vinyl.img}
             width={300}
