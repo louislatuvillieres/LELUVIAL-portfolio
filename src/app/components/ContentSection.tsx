@@ -42,7 +42,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
       transition={{ type: "spring", stiffness: 100 }}
     >
       <div
-        className="bg-white p-6 shadow-2xl relative"
+        className="bg-white p-6 shadow-lg relative"
         style={{ transform: `rotate(${imageRotation}deg)` }}
       >
         <Image
